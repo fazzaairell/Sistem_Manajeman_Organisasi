@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +16,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Seed Roles menggunakan factory
+        $roleAdmin = \App\Models\Role::factory()->admin()->create();
+        $roleMahasiswa = \App\Models\Role::factory()->mahasiswa()->create();
 
+        // Akun Admin Dummy menggunakan factory
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Administrator',
+            'email' => 'admin@example.com',
+            'username' => 'admin',
+            'password' => Hash::make('Admin123'),
+            'role_id' => $roleAdmin->id,
+        ]);
+
+        // Akun Mahasiswa Dummy menggunakan factory
+        User::factory()->create([
+            'name' => 'Mahasiswa Dummy',
+            'email' => 'mahasiswa@example.com',
+            'username' => 'mahasiswa',
+            'password' => Hash::make('Mhs12345'),
+            'role_id' => $roleMahasiswa->id,
+        ]);
+
+        // Generate 5 mahasiswa tambahan untuk testing (opsional)
+        User::factory(5)->create([
+            'role_id' => $roleMahasiswa->id,
         ]);
     }
 }
