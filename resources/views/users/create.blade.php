@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah User</title>
-</head>
-<body>
-    <!-- NAVBAR -->
-    <nav>
-        <a href="{{ route('dashboard') }}">Dashboard</a> |
-        <a href="{{ route('users.index') }}">Manajemen User</a> |
-        <a href="{{ route('profile.edit') }}">Profile</a> |
-        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-            @csrf
-            <button type="submit">Keluar</button>
-        </form>
-    </nav>
+<x-dashboard.layout title="Tambah User">
+
     
-    <hr>
-    
-    <h1>Tambah User Baru</h1>
-    
-    <p><a href="{{ route('users.index') }}">&larr; Kembali ke Daftar User</a></p>
-    
-    <hr>
-    
+    <div class="bg-white shadow-sm p-6 space-y-6 p-10">
+
+        <div class="flex items-center justify-between">
+            <h1 class="text-xl font-semibold text-gray-800">Tambahkan User Baru</h1>
+
+            <div class="flex gap-2">
+                <a href="{{ route('users.create') }}"  
+                   class="inline-flex items-center gap-2 px-3 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Tambah User</span>
+                </a>
+
+                <a href="{{ route('users.index') }}"
+                   class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">
+                    Back
+                </a>
+            </div>
+        </div>
+
     <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
         @csrf
         
@@ -109,5 +104,7 @@
             <a href="{{ route('users.index') }}"><button type="button">Batal</button></a>
         </div>
     </form>
-</body>
-</html>
+        
+
+    </div>
+</x-dashboard.layout>
