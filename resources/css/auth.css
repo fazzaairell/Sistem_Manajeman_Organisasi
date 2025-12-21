@@ -1,0 +1,24 @@
+.right-panel-active .sign-in {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.right-panel-active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.sign-up {
+    pointer-events: none;
+}
+
+.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.right-panel-active .overlay {
+    transform: translateX(50%);
+}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -26,12 +27,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     
-    // Profile routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password');
+    // General routes
+    Route::get('/general', [GeneralController::class, 'organization'])->name('general.edit');
+    Route::put('/general', [GeneralController::class, 'updateOrganization'])->name('general.organization.update');
+    // Route::put('/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
     
     // User Management routes (Admin only)
     Route::resource('users', UserController::class);
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::get('/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
 });
