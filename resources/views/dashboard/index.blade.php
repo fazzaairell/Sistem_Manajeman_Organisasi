@@ -73,5 +73,4 @@
         </div>
     </div>
 
-    <x-dashboard.dasboard-section />
 </x-dashboard.layout>
