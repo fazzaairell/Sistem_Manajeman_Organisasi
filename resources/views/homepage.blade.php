@@ -15,7 +15,7 @@
     <div class="flex justify-center items-center">
         <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40">
             <h1>InTech</h1>
-            <nav class="">
+            <nav>
                 <ul class="flex justify-center items-center space-x-10">
                     <li>
                         <a href="#" class="hover:text-purple-500">Beranda</a>
@@ -42,14 +42,13 @@
 
         <div class="w-[70%] flex rounded-tr-[150px] overflow-hidden">
             <div class="w-[50%] p-2 space-y-2">
-                <p class="p-2 bg-blue-300 w-fit rounded-2xl text-[12px] ml-3">Mengenal Kami lebih jauh disini!</p>
-                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,<span
-                        class="text-red-600">solid</span>, dan berdaya guna.</h1>
+                <p class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">Mengenal Kami lebih jauh disini!</p>
+                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,solid, dan berdaya guna.</h1>
                 <p class="p-2 w-[80%] text-[#181E4B]/85">kami merupakan wadah kolaborasi yang bertujuan untuk
                     mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
                     lingkungan dan masyarakat.</p>
                 <button
-                    class="py-4 px-8 shadow-2xl bg-red-600 rounded-[8px] text-white font-bold hover:bg-red-950 ml-3 mt-5">
+                    class="py-4 px-8 shadow-2xl bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold ml-3 mt-5 hover:scale-110 transition-transform duration-500">
                     <a href="#">Lihat Event →</a>
                 </button>
             </div>
@@ -66,13 +65,13 @@
     <div class="relative flex justify-center items-center mt-[100px]">
         <div class="w-[70%] flex border border-gray-300 rounded-3xl">
             <div class="w-[50%] p-20 space-y-2">
-                <p class="text-red-600 w-fit p-2 bg-red-300 rounded-2xl">Sejak 2025</p>
-                <h1 class="text-[50px] text-[#181E4B] font-bold">Tentang <span class="text-red-600">KAMI</span></h1>
+                <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak 2025</p>
+                <h1 class="text-[50px] text-[#181E4B] font-bold">Tentang KAMI</h1>
                 <p class="text-[#181E4B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non facere officia ab
                     autem. Dolor ipsa
                     blanditiis animi officiis obcaecati accusantium nemo accusamus impedit excepturi maiores, in, est
                     quam dolores odio.</p>
-                <button class="bg-red-600 rounded-[8px] text-white font-bold hover:bg-red-950 py-4 px-8 mt-5">
+                <button class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
                     <a href="#home">Pelajari Lebih lanjut →</a>
                 </button>
             </div>
@@ -89,7 +88,7 @@
 
     <div class="relative flex justify-center items-center mt-[100px]">
         <div class="w-[70%] space-y-2">
-            <h2 class="text-red-800 text-2xl font-semibold">Event Kami</h2>
+            <h2 class="text-purple-950 text-2xl font-semibold">Event Kami</h2>
             <div class="flex justify-between items-center">
                 <h1 class="text-4xl font-bold">🎉 • Event - event KAMI</h1>
                 <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
@@ -99,9 +98,9 @@
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
                     <img src="/storage/photos/page.png" alt="Event Image" class="rounded-lg object-cover w-full h-48" />
 
-                    <p class="text-red-600 text-sm font-semibold">Telah Selesai</p>
+                    <p class="text-green-600 text-sm font-semibold">Telah Selesai</p>
 
-                    <h3 class="text-lg font-bold text-gray-900 hover:text-red-600 cursor-pointer transition-colors">
+                    <h3 class="text-lg font-bold text-gray-900 hover:text-purple-600 cursor-pointer transition-colors">
                         Festival Music Unpas 2025
                     </h3>
 
@@ -118,7 +117,7 @@
                     </p>
 
                     <button
-                        class="w-full py-2 text-red-600 bg-red-100 rounded-md font-semibold hover:bg-red-200 transition">
+                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -126,9 +125,9 @@
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
                     <img src="/storage/photos/page.png" alt="Event Image" class="rounded-lg object-cover w-full h-48" />
 
-                    <p class="text-red-600 text-sm font-semibold">Telah Selesai</p>
+                    <p class="text-green-600 text-sm font-semibold">Telah Selesai</p>
 
-                    <h3 class="text-lg font-bold text-gray-900 hover:text-red-600 cursor-pointer transition-colors">
+                    <h3 class="text-lg font-bold text-gray-900 hover:text-purple-600 cursor-pointer transition-colors">
                         Festival Music Unpas 2025
                     </h3>
 
@@ -145,7 +144,7 @@
                     </p>
 
                     <button
-                        class="w-full py-2 text-red-600 bg-red-100 rounded-md font-semibold hover:bg-red-200 transition">
+                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -153,9 +152,9 @@
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
                     <img src="/storage/photos/page.png" alt="Event Image" class="rounded-lg object-cover w-full h-48" />
 
-                    <p class="text-red-600 text-sm font-semibold">Telah Selesai</p>
+                    <p class="text-green-600 text-sm font-semibold">Telah Selesai</p>
 
-                    <h3 class="text-lg font-bold text-gray-900 hover:text-red-600 cursor-pointer transition-colors">
+                    <h3 class="text-lg font-bold text-gray-900 hover:text-purple-600 cursor-pointer transition-colors">
                         Festival Music Unpas 2025
                     </h3>
 
@@ -172,7 +171,7 @@
                     </p>
 
                     <button
-                        class="w-full py-2 text-red-600 bg-red-100 rounded-md font-semibold hover:bg-red-200 transition">
+                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -183,7 +182,7 @@
 
     <div class="relative flex justify-center items-center mt-20">
         <div class="w-[70%] space-y-2">
-            <h2 class="text-red-800 text-2xl font-semibold">Info Terkini</h2>
+            <h2 class="text-purple-950 text-2xl font-semibold">Info Terkini</h2>
             <div class="flex justify-between items-center">
                 <h1 class="text-4xl font-bold">📰 • Pengumuman Terkini</h1>
                 <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
@@ -245,7 +244,7 @@
 
     <div class="relative flex justify-center items-center mt-20 mb-20">
         <div class="w-[70%] space-y-2">
-            <h2 class="text-red-800 text-2xl font-semibold">Koleksi terbaru</h2>
+            <h2 class="text-purple-800 text-2xl font-semibold">Koleksi terbaru</h2>
             <div class="flex justify-between items-center">
                 <h1 class="text-4xl font-bold">📰 • Galeri KAMI</h1>
                 <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
@@ -285,7 +284,7 @@
                 kami merupakan wadah kolaborasi yang bertujuan untuk
                     mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
                     lingkungan dan masyarakat...
-                <a href="#" class="text-red-500 hover:underline">Baca Selengkapnya</a>
+                <a href="#" class="text-blue-700 hover:underline">Baca Selengkapnya</a>
             </p>
 
             <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
