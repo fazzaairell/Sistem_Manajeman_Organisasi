@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 
 // Route untuk guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -39,4 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::get('/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
+
+    // Event Routes
+    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
 });
