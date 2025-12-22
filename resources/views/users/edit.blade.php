@@ -6,11 +6,9 @@
     <title>Edit User</title>
 </head>
 <body>
-    <!-- NAVBAR -->
     <nav>
         <a href="{{ route('dashboard') }}">Dashboard</a> |
         <a href="{{ route('users.index') }}">Manajemen User</a> |
-        <a href="{{ route('profile.edit') }}">Profile</a> |
         <form method="POST" action="{{ route('logout') }}" style="display: inline;">
             @csrf
             <button type="submit">Keluar</button>
@@ -29,7 +27,6 @@
         @csrf
         @method('PUT')
         
-        <!-- Foto Profile Saat Ini -->
         <div>
             <label>Foto Profile Saat Ini:</label><br>
             @if($user->photo)

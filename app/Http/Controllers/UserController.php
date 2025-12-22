@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        
+
         $users = User::with('role')
             ->when($search, function ($query, $search) {
                 return $query->where('name', 'like', "%{$search}%")
@@ -26,7 +26,7 @@ class UserController extends Controller
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-        
+
         return view('users.index', compact('users', 'search'));
     }
 
@@ -178,7 +178,7 @@ class UserController extends Controller
     public function exportPdf(Request $request)
     {
         $search = $request->input('search');
-        
+
         $users = User::with('role')
             ->when($search, function ($query, $search) {
                 return $query->where('name', 'like', "%{$search}%")
@@ -189,7 +189,7 @@ class UserController extends Controller
             ->get();
 
         $pdf = Pdf::loadView('users.pdf', compact('users'));
-        
+
         return $pdf->download('laporan-user-' . date('Y-m-d') . '.pdf');
     }
 }
