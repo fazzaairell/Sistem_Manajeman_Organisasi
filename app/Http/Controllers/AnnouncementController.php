@@ -4,32 +4,80 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
     public function index()
-    {
-        // Mengambil semua pengumuman untuk ditampilkan di dashboard
-        $announcements = Announcement::all();
-        return view('dashboard.announcements', compact('announcements'));
-    }
+{
+    // Mengambil semua data pengumuman terbaru
+    $announcements = Announcement::latest()->get();
+    
+    return view('announcements.index', compact('announcements'));
+}
 
+    // Simpan Pengumuman Baru
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
         ]);
 
-        $path = $request->file('image')->store('announcements', 'public');
+        $data = $request->all();
 
-        Announcement::create([
-            'image' => $path,
-            'date' => $request->date,
-            'content' => $request->content,
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('announcements', 'public');
+        }
+
+        Announcement::create($data);
+        return back()->with('success', 'Pengumuman berhasil ditambahkan!');
+    }
+
+    // Hapus Pengumuman
+    public function destroy($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        
+        if ($announcement->image) {
+            Storage::disk('public')->delete($announcement->image);
+        }
+        
+        $announcement->delete();
+        return back()->with('success', 'Pengumuman berhasil dihapus!');
+    }
+
+    // Fungsi untuk menampilkan halaman form edit
+    public function edit($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        return view('announcements.edit', compact('announcement'));
+    }
+
+    // Fungsi untuk memproses pembaruan data
+    public function update(Request $request, $id)
+    {
+        $announcement = Announcement::findOrFail($id);
+
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'date' => 'required|date',
+            'content' => 'required',
         ]);
 
-        return redirect()->back()->with('success', 'Pengumuman berhasil terbit!');
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            if ($announcement->image) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($announcement->image);
+            }
+            $data['image'] = $request->file('image')->store('announcements', 'public');
+        }
+
+        $announcement->update($data);
+
+        return redirect()->route('announcements.index')->with('success', 'Pengumuman berhasil diperbarui!');
     }
+    
 }

@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ route('announcements.index') }}"
                     class="flex items-center space-x-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg transition">
                     <i class="fas fa-newspaper w-5"></i>
                     <span>Announcement</span>
