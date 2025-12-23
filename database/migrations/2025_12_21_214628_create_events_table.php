@@ -13,14 +13,15 @@ return new class extends Migration
     {
        Schema::create('events', function (Blueprint $table) {
         $table->id();
-        $table->string('image'); // Untuk gambar Festival Music
-        $table->string('status'); // Contoh: 'Telah Selesai'
-        $table->string('title'); // Contoh: 'Festival Music Unpas 2025'
+        $table->string('image')->nullable(); // Foto Event
+        $table->string('title'); // Judul Event
+        $table->string('status'); // Contoh: 'Mendatang', 'Selesai'
         $table->date('start_date');
         $table->date('end_date');
-        $table->text('description'); // Contoh: '10 Band Terbaik'
+        $table->text('description');
+        $table->string('penanggung_jawab'); 
         $table->timestamps();
-        });
+    });
     }
 
     /**

@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('')
+                <a href="{{ route('events.index') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('')
     ? 'bg-purple-50 text-purple-600 font-semibold'
     : 'text-gray-600 hover:bg-gray-50'
                        }}">

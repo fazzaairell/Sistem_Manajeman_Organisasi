@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manajemen Pengumuman</title>
+<x-dashboard.layout title="Manajemen Announcement">
+
     <style>
         body { font-family: sans-serif; margin: 20px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th, td { border: 1px solid #0c0b0bff; padding: 12px; text-align: left; }
         th { background-color: #f4f4f4; }
-        .form-section { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 20px; }
+        .form-section { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #131313ff; margin-bottom: 20px; }
         input, textarea { display: block; width: 100%; margin-bottom: 10px; padding: 8px; }
-        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button { padding: 10px 20px; background-color: #8930bdff; color: white; border: none; border-radius: 4px; cursor: pointer; }
         .btn-delete { color: red; background: none; border: none; cursor: pointer; font-weight: bold; }
     </style>
-</head>
-<body>
 
-    <h2>Manajemen Pengumuman</h2>
 
     <div class="form-section">
-        <h3>Tambah Pengumuman Baru</h3>
+        <h3>Manajemen Announcement</h3>
         <form action="{{ route('announcements.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label>Tanggal:</label>
@@ -31,7 +25,7 @@
             <label>Foto Pengumuman:</label>
             <input type="file" name="image">
             
-            <button type="submit">Tambah Pengumuman</button>
+            <button type="submit">Tambah Announcement</button>
         </form>
     </div>
 
@@ -78,5 +72,4 @@
         </tbody>
     </table>
 
-</body>
-</html>
+</x-dashboard.layout>

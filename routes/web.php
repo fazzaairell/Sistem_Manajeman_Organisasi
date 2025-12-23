@@ -44,7 +44,10 @@ Route::middleware('auth')->group(function () {
 
     // Event Routes
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
-    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+    Route::post('/events', [EventController::class, 'store'])->name('events.store'); 
+    Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('events.edit');
+    Route::put('/events/{id}', [EventController::class, 'update'])->name('events.update');
+    Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
     // Announcement Routes
     Route::get('/announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
