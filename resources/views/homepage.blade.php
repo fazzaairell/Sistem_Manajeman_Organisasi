@@ -7,13 +7,14 @@
     <title>Homepage</title>
     @vite([
         'resources/css/app.css',
+        'resources/js/app.js',
     ])
 </head>
 
 <body class="bg-white ">
 
     <div class="flex justify-center items-center">
-        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40">
+        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40 font-semibold">
             <h1>InTech</h1>
             <nav>
                 <ul class="flex justify-center items-center space-x-10">
@@ -34,6 +35,106 @@
                     </li>
                 </ul>
             </nav>
+            <div>
+
+                @auth
+                            <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-xl hover:bg-purple-700 focus:ring-4 focus:ring-purple-300"
+                                type="button">
+                                {{ auth()->user()->username }}
+                                <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="m19 9-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownInformation"
+                                class="z-10 hidden bg-white border border-gray-300/60 rounded-base shadow-lg w-72">
+                                <div class="p-2">
+                                    <div class="flex items-center px-2.5 p-2 space-x-1.5 text-sm rounded">
+                                        <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->photo }}" alt="Rounded avatar">
+                                        <div class="text-sm">
+                                            <div class="font-medium text-heading">{{ auth()->user()->username }}</div>
+                                            <div class="truncate text-body">{{ auth()->user()->email }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
+                                    <li>
+                                        <a href="#"
+                                            class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
+         hover:bg-purple-50 hover:translate-x-1">
+                                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-width="2"
+                                                    d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg>
+                                            Account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-flex items-center w-full p-2 hover:text-heading rounded transition-all duration-200 ease-in-out
+                     hover:bg-purple-50 hover:translate-x-1">
+                                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                                    d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" />
+                                            </svg>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
+                     hover:bg-purple-50 hover:translate-x-1">
+                                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z" />
+                                            </svg>
+                                            Privacy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded transition-all duration-200 ease-in-out
+                     hover:bg-purple-50 hover:translate-x-1">
+                                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z" />
+                                            </svg>
+                                            Notifications
+                                        </a>
+                                    </li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="inline-flex items-center w-full p-2 text-fg-danger rounded transition-all duration-200 ease-in-out
+                     hover:bg-red-50 hover:translate-x-1">
+                                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
+                                            </svg>
+                                            Sign out
+                                        </button>
+                                    </form>
+                                </ul>
+                            </div>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="w-fit px-5 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:scale-95">
+                        Masuk
+                    </a>
+
+                @endauth
+
+
+
+            </div>
+
         </div>
 
     </div>
@@ -42,8 +143,11 @@
 
         <div class="w-[70%] flex rounded-tr-[150px] overflow-hidden">
             <div class="w-[50%] p-2 space-y-2">
-                <p class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">Mengenal Kami lebih jauh disini!</p>
-                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,solid, dan berdaya guna.</h1>
+                <p
+                    class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">
+                    Mengenal Kami lebih jauh disini!</p>
+                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,solid, dan berdaya
+                    guna.</h1>
                 <p class="p-2 w-[80%] text-[#181E4B]/85">kami merupakan wadah kolaborasi yang bertujuan untuk
                     mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
                     lingkungan dan masyarakat.</p>
@@ -65,13 +169,15 @@
     <div class="relative flex justify-center items-center mt-[100px]">
         <div class="w-[70%] flex border border-gray-300 rounded-3xl">
             <div class="w-[50%] p-20 space-y-2">
-                <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak 2025</p>
+                <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak 2025
+                </p>
                 <h1 class="text-[50px] text-[#181E4B] font-bold">Tentang KAMI</h1>
                 <p class="text-[#181E4B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non facere officia ab
                     autem. Dolor ipsa
                     blanditiis animi officiis obcaecati accusantium nemo accusamus impedit excepturi maiores, in, est
                     quam dolores odio.</p>
-                <button class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
+                <button
+                    class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
                     <a href="#home">Pelajari Lebih lanjut →</a>
                 </button>
             </div>
@@ -116,8 +222,7 @@
                         <span>10 Band Terbaik</span>
                     </p>
 
-                    <button
-                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
+                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -143,8 +248,7 @@
                         <span>10 Band Terbaik</span>
                     </p>
 
-                    <button
-                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400">
+                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -170,8 +274,7 @@
                         <span>10 Band Terbaik</span>
                     </p>
 
-                    <button
-                        class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
+                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                         <a href="#">Lihat Event →</a>
                     </button>
                 </div>
@@ -191,7 +294,7 @@
             <div class="max-w-7xl mx-auto px-4 py-8">
                 <div class="grid gap-6 md:grid-cols-3">
 
-                <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
                         <img src="/storage/photos/page.png" alt=""
                             class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
                         <div
@@ -282,8 +385,8 @@
 
             <p class="mt-4 text-sm text-gray-600 max-w-3xl mx-auto">
                 kami merupakan wadah kolaborasi yang bertujuan untuk
-                    mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
-                    lingkungan dan masyarakat...
+                mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
+                lingkungan dan masyarakat...
                 <a href="#" class="text-blue-700 hover:underline">Baca Selengkapnya</a>
             </p>
 
