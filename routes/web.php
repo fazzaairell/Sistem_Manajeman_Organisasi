@@ -9,12 +9,11 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 
+Route::get('/', [HomepageController::class, 'index']);
+
 // Route untuk guest (belum login)
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return redirect()->route('login');
-    });
-
+    
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
 
@@ -31,8 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
     // General routes
-    Route::get('/general', [GeneralController::class, 'organization'])->name('general.edit');
-    Route::put('/general', [GeneralController::class, 'updateOrganization'])->name('general.organization.update');
+    Route::get('/general', [GeneralController::class, 'index'])->name('general.profile');
+    Route::put('/general', [GeneralController::class, 'update'])->name('general.update');
     // Route::put('/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
 
     // User Management routes (Admin only)

@@ -13,7 +13,7 @@
 <body class="bg-white ">
 
     <div class="flex justify-center items-center">
-        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40">
+        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40 font-semibold">
             <h1>InTech</h1>
             <nav>
                 <ul class="flex justify-center items-center space-x-10">
@@ -34,6 +34,7 @@
                     </li>
                 </ul>
             </nav>
+            <a href="{{ route('login') }}" class="w-fit px-5 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl text-white hover:scale-95">Masuk</a>
         </div>
 
     </div>
