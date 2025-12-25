@@ -7,7 +7,7 @@
         th { background-color: #f4f4f4; }
         .form-section { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #131313ff; margin-bottom: 20px; }
         input, textarea { display: block; width: 100%; margin-bottom: 10px; padding: 8px; }
-        button { padding: 10px 20px; background-color: #8930bdff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button { padding: 10px 20px; background-color: #963fc9ff; color: white; border: none; border-radius: 4px; cursor: pointer; }
         .btn-delete { color: red; background: none; border: none; cursor: pointer; font-weight: bold; }
     </style>
 
@@ -61,7 +61,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" 
-                                style="background-color: #007bff; color: white; padding: 8px 15px; border: none; border-radius: 5px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                                style="background-color: #f04e4eff; color: white; padding: 8px 15px; border: none; border-radius: 5px; font-size: 14px; font-weight: bold; cursor: pointer;">
                             Hapus
                         </button>
                     </form>

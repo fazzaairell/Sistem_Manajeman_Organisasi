@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Event</title>
+<x-dashboard.layout title="Edit Events">
     <style>
         body { font-family: sans-serif; margin: 40px; line-height: 1.6; }
         .container { max-width: 600px; margin: auto; background: #f9f9f9; padding: 20px; border-radius: 8px; }
@@ -50,5 +46,4 @@
     </form>
 </div>
 
-</body>
-</html>
+</x-dashboard.layout>

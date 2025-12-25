@@ -10,7 +10,7 @@ class AnnouncementController extends Controller
 {
     public function index()
 {
-    // Mengambil semua data pengumuman terbaru
+    // Mengambil Semua Pengumuman Terbaru
     $announcements = Announcement::latest()->get();
     
     return view('announcements.index', compact('announcements'));
@@ -48,14 +48,14 @@ class AnnouncementController extends Controller
         return back()->with('success', 'Pengumuman berhasil dihapus!');
     }
 
-    // Fungsi untuk menampilkan halaman form edit
+    // Fungsi Menampilkan Halaman Form Edit
     public function edit($id)
     {
         $announcement = Announcement::findOrFail($id);
         return view('announcements.edit', compact('announcement'));
     }
 
-    // Fungsi untuk memproses pembaruan data
+    // Fungsi Pembaruan Data
     public function update(Request $request, $id)
     {
         $announcement = Announcement::findOrFail($id);
