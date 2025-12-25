@@ -5,42 +5,92 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
-    // Menampilkan semua event di halaman
-    public function index()
+    // Menampilkan Semua Data dengan Fitur Search
+    public function index(Request $request)
     {
-        $events = Event::all();
-        return view('dashboard.events', compact('events'));
+    
+        $search = $request->input('search');
+
+        $events = Event::when($search, function ($query, $search) {
+            return $query->where('title', 'like', "%{$search}%")
+                         ->orWhere('penanggung_jawab', 'like', "%{$search}%")
+                         ->orWhere('status', 'like', "%{$search}%");
+        })->latest()->get();
+        return view('welcome', compact('events'));
+        return view('events.index', compact('events'));
     }
 
-    // Menyimpan data event baru
+    // Simpan ke Database
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title' => 'required',
+            'status' => 'required',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
+            'description' => 'required',
+            'penanggung_jawab' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
-        // Mengunggah gambar ke folder storage/app/public/events
+        $data = $request->all();
+
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('events', 'public');
+            $data['image'] = $request->file('image')->store('events', 'public');
         }
 
-        Event::create([
-            'user_id' => $request->user()->id, // Mengambil ID user yang sedang login
-            'image' => $path,
-            'status' => $request->status ?? 'Akan Datang',
-            'title' => $request->title,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'description' => $request->description,
+        Event::create($data);
+        return redirect()->route('events.index')->with('success', 'Event berhasil ditambahkan!');
+    }
+
+    // Form Edit 
+    public function edit($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event')); 
+    }
+
+    // Update Data
+    public function update(Request $request, $id)
+    {
+        $event = Event::findOrFail($id);
+        
+        $request->validate([
+            'title' => 'required',
+            'status' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'description' => 'required',
+            'penanggung_jawab' => 'required',
         ]);
 
-        return redirect()->back()->with('success', 'Event berhasil ditambahkan!');
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            if ($event->image) { 
+                Storage::disk('public')->delete($event->image); 
+            }
+            $data['image'] = $request->file('image')->store('events', 'public');
+        }
+
+        $event->update($data);
+        return redirect()->route('events.index')->with('success', 'Event berhasil diupdate!');
     }
+
+    // Hapus Data
+    public function destroy($id)
+    {
+        $event = Event::findOrFail($id);
+        
+        if ($event->image) { 
+            Storage::disk('public')->delete($event->image); 
+        }
+        
+        $event->delete();
+        return redirect()->route('events.index')->with('success', 'Event berhasil dihapus!');
+    }
+    
 }
