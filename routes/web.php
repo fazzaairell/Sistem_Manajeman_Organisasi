@@ -12,6 +12,8 @@ use App\Http\Controllers\HomepageController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
+Route::get('/', [HomepageController::class, 'index']);
+
 // Route untuk guest (belum login)
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');

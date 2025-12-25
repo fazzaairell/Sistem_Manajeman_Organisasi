@@ -13,7 +13,7 @@
 <body class="bg-white ">
 
     <div class="flex justify-center items-center">
-        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40">
+        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40 font-semibold">
             <h1>InTech</h1>
             <nav>
                 <ul class="flex justify-center items-center space-x-10">
@@ -34,106 +34,7 @@
                     </li>
                 </ul>
             </nav>
-            <div>
-
-                @auth
-                    <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
-                        class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-xl hover:bg-purple-700 focus:ring-4 focus:ring-purple-300"
-                        type="button">
-                        {{ auth()->user()->username }}
-                        <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m19 9-7 7-7-7" />
-                        </svg>
-                    </button>
-
-                    <!-- Dropdown menu -->
-                    <div id="dropdownInformation"
-                        class="z-10 hidden bg-white border border-gray-300/60 rounded-base shadow-lg w-72">
-                        <div class="p-2">
-                            <div class="flex items-center px-2.5 p-2 space-x-1.5 text-sm rounded">
-                                <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->photo }}" alt="Rounded avatar">
-                                <div class="text-sm">
-                                    <div class="font-medium text-heading">{{ auth()->user()->username }}</div>
-                                    <div class="truncate text-body">{{ auth()->user()->email }}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
-                            <li>
-                                <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
-                         hover:bg-purple-50 hover:translate-x-1">
-                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-width="2"
-                                            d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                    </svg>
-                                    Account
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="inline-flex items-center w-full p-2 hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
-                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                                            d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" />
-                                    </svg>
-                                    Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
-                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z" />
-                                    </svg>
-                                    Privacy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
-                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z" />
-                                    </svg>
-                                    Notifications
-                                </a>
-                            </li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="inline-flex items-center w-full p-2 text-fg-danger rounded transition-all duration-200 ease-in-out
-                                     hover:bg-red-50 hover:translate-x-1">
-                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
-                                    </svg>
-                                    Sign out
-                                </button>
-                            </form>
-                        </ul>
-                    </div>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="w-fit px-5 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:scale-95">
-                        Masuk
-                    </a>
-
-                @endauth
-
-
-
-            </div>
-
+            <a href="{{ route('login') }}" class="w-fit px-5 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl text-white hover:scale-95">Masuk</a>
         </div>
 
     </div>
