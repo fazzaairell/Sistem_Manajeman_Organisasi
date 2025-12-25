@@ -22,16 +22,16 @@
                         <a href="#" class="hover:text-purple-500">Beranda</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500">Event</a>
+                        <a href="#event" class="hover:text-purple-500">Event</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500">Pengumuman</a>
+                        <a href="#pengumuman" class="hover:text-purple-500">Pengumuman</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500">Galeri</a>
+                        <a href="#galeri" class="hover:text-purple-500">Galeri</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500">Kontak</a>
+                        <a href="#kontak" class="hover:text-purple-500">Kontak</a>
                     </li>
                 </ul>
             </nav>
@@ -48,6 +48,7 @@
                                 d="m19 9-7 7-7-7" />
                         </svg>
                     </button>
+
                     <!-- Dropdown menu -->
                     <div id="dropdownInformation"
                         class="z-10 hidden bg-white border border-gray-300/60 rounded-base shadow-lg w-72">
@@ -180,7 +181,7 @@
                     <a href="#home">Pelajari Lebih lanjut →</a>
                 </button>
             </div>
-            <div class="w-[50%] flex justify-center items-center">
+            <div id="event" class="w-[50%] flex justify-center items-center">
                 <div class="w-[85%] h-[70%] rounded-2xl overflow-hidden shadow-md">
                     <div
                         class="w-full h-full bg-[url('/public/storage/photos/page.png')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
@@ -228,7 +229,6 @@
 
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
                     <img src="/storage/photos/page.png" alt="Event Image" class="rounded-lg object-cover w-full h-48" />
-
                     <p class="text-green-600 text-sm font-semibold">Telah Selesai</p>
 
                     <h3 class="text-lg font-bold text-gray-900 hover:text-purple-600 cursor-pointer transition-colors">
@@ -282,7 +282,7 @@
         </div>
     </div>
 
-    <div class="relative flex justify-center items-center mt-20">
+    <div id="pengumuman" class="relative flex justify-center items-center mt-20">
         <div class="w-[70%] space-y-2">
             <h2 class="text-purple-950 text-2xl font-semibold">Info Terkini</h2>
             <div class="flex justify-between items-center">
@@ -344,7 +344,7 @@
     </div>
 
 
-    <div class="relative flex justify-center items-center mt-20 mb-20">
+    <div id="galeri" class="relative flex justify-center items-center mt-20 mb-20">
         <div class="w-[70%] space-y-2">
             <h2 class="text-purple-800 text-2xl font-semibold">Koleksi terbaru</h2>
             <div class="flex justify-between items-center">
@@ -389,7 +389,7 @@
                 <a href="#" class="text-blue-700 hover:underline">Baca Selengkapnya</a>
             </p>
 
-            <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+            <div id="kontak" class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
                 <div class="flex items-center gap-2">
                     <span>📞</span>
                     <span>(081) 777777</span>
