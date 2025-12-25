@@ -8,7 +8,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\AnnouncementController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
