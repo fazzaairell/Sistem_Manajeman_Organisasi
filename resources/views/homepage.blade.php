@@ -7,14 +7,13 @@
     <title>Homepage</title>
     @vite([
         'resources/css/app.css',
-        'resources/js/app.js',
     ])
 </head>
 
 <body class="bg-white ">
 
     <div class="flex justify-center items-center">
-        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40 font-semibold">
+        <div class="w-[70%] relative flex justify-between p-8 border-b border-gray-300/40">
             <h1>InTech</h1>
             <nav>
                 <ul class="flex justify-center items-center space-x-10">
