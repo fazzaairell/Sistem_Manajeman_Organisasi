@@ -7,7 +7,7 @@
 
             <div class="flex gap-2">
                 <a href="{{ route('users.create') }}"  
-                   class="inline-flex items-center gap-2 px-3 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600">
+                   class="inline-flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600">
                     <i class="fas fa-user-plus"></i>
                     <span>Tambah User</span>
                 </a>
@@ -19,7 +19,6 @@
             </div>
         </div>
 
-        {{-- Search --}}
         <form method="GET" class="flex gap-2">
             <input type="text"
                    name="search"
@@ -27,12 +26,11 @@
                    placeholder="Cari nama atau username..."
                    class="border rounded-lg px-3 py-2 text-sm w-64">
 
-            <button class="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
                 Cari
             </button>
         </form>
 
-        {{-- Table --}}
         <div class="overflow-x-auto">
             <table class="w-full border-collapse text-sm">
                 <thead class="bg-gray-50 text-gray-600">

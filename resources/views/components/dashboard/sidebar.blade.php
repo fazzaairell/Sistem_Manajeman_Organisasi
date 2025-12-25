@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('general.edit') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('general.*')
+                <a href="{{ route('general.profile') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('general.*')
     ? 'bg-purple-50 text-purple-600 font-semibold'
     : 'text-gray-600 hover:bg-gray-50'
                        }}">
