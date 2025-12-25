@@ -11,6 +11,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+
+        if (auth()->user()->role_id != 1) {
+            abort(403);
+        }
+        return view('dashboard.index');
     }
 }
