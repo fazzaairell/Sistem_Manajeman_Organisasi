@@ -1,6 +1,6 @@
 <x-dashboard.layout title="Manajemen Announcement">
 
-    <style>
+    <!-- <style>
         body { font-family: sans-serif; margin: 20px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #0c0b0bff; padding: 12px; text-align: left; }
@@ -9,7 +9,7 @@
         input, textarea { display: block; width: 100%; margin-bottom: 10px; padding: 8px; }
         button { padding: 10px 20px; background-color: #8930bdff; color: white; border: none; border-radius: 4px; cursor: pointer; }
         .btn-delete { color: red; background: none; border: none; cursor: pointer; font-weight: bold; }
-    </style>
+    </style> -->
 
 
     <div class="form-section">

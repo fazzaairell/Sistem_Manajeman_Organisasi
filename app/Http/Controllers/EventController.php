@@ -19,7 +19,6 @@ class EventController extends Controller
                          ->orWhere('penanggung_jawab', 'like', "%{$search}%")
                          ->orWhere('status', 'like', "%{$search}%");
         })->latest()->get();
-        return view('welcome', compact('events'));
         return view('events.index', compact('events'));
     }
 
