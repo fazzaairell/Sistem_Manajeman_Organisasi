@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     // General routes
     Route::get('/general', [GeneralController::class, 'index'])->name('general.profile');
     Route::put('/general', [GeneralController::class, 'update'])->name('general.update');
-    // Route::put('/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
+    Route::put('/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
 
     // User Management routes (Admin only)
     Route::resource('users', UserController::class);
