@@ -11,17 +11,23 @@ class EventController extends Controller
     // Menampilkan Semua Data dengan Fitur Search
     public function index(Request $request)
     {
-    
+
         $search = $request->input('search');
 
         $events = Event::when($search, function ($query, $search) {
             return $query->where('title', 'like', "%{$search}%")
-                         ->orWhere('penanggung_jawab', 'like', "%{$search}%")
-                         ->orWhere('status', 'like', "%{$search}%");
-        })->latest()->get();
-        return view('welcome', compact('events'));
+                ->orWhere('penanggung_jawab', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
+        })->latest()->paginate();
         return view('events.index', compact('events'));
     }
+
+    public function create()
+    {
+        $event = Event::all();
+        return view('events.create', compact('event'));
+    }
+
 
     // Simpan ke Database
     public function store(Request $request)
@@ -50,14 +56,14 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.edit', compact('event')); 
+        return view('events.edit', compact('event'));
     }
 
     // Update Data
     public function update(Request $request, $id)
     {
         $event = Event::findOrFail($id);
-        
+
         $request->validate([
             'title' => 'required',
             'status' => 'required',
@@ -70,8 +76,8 @@ class EventController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            if ($event->image) { 
-                Storage::disk('public')->delete($event->image); 
+            if ($event->image) {
+                Storage::disk('public')->delete($event->image);
             }
             $data['image'] = $request->file('image')->store('events', 'public');
         }
@@ -84,13 +90,13 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
-        
-        if ($event->image) { 
-            Storage::disk('public')->delete($event->image); 
+
+        if ($event->image) {
+            Storage::disk('public')->delete($event->image);
         }
-        
+
         $event->delete();
         return redirect()->route('events.index')->with('success', 'Event berhasil dihapus!');
     }
-    
+
 }

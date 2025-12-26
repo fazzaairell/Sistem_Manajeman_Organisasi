@@ -9,12 +9,17 @@ use Illuminate\Support\Facades\Storage;
 class AnnouncementController extends Controller
 {
     public function index()
-{
-    // Mengambil semua data pengumuman terbaru
-    $announcements = Announcement::latest()->get();
-    
-    return view('announcements.index', compact('announcements'));
-}
+    {
+        // Mengambil semua data pengumuman terbaru
+        $announcements = Announcement::latest()->paginate();
+
+        return view('announcements.index', compact('announcements'));
+    }
+
+    public function create()
+    {
+        return view('announcements.create');
+    }
 
     // Simpan Pengumuman Baru
     public function store(Request $request)
@@ -32,18 +37,21 @@ class AnnouncementController extends Controller
         }
 
         Announcement::create($data);
-        return back()->with('success', 'Pengumuman berhasil ditambahkan!');
+        return redirect()
+            ->route('announcements.index')
+            ->with('success', 'Announcement berhasil ditambahkan');
+
     }
 
     // Hapus Pengumuman
     public function destroy($id)
     {
         $announcement = Announcement::findOrFail($id);
-        
+
         if ($announcement->image) {
             Storage::disk('public')->delete($announcement->image);
         }
-        
+
         $announcement->delete();
         return back()->with('success', 'Pengumuman berhasil dihapus!');
     }
@@ -79,5 +87,5 @@ class AnnouncementController extends Controller
 
         return redirect()->route('announcements.index')->with('success', 'Pengumuman berhasil diperbarui!');
     }
-    
+
 }
