@@ -20,7 +20,6 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        // Validasi input
         $credentials = $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
@@ -29,15 +28,17 @@ class LoginController extends Controller
             'password.required' => 'Password wajib diisi.',
         ]);
 
-        // Attempt login dengan username dan password
         if (Auth::attempt($credentials)) {
-            // Regenerate session untuk keamanan
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            if (auth()->user()->role_id == 1) {
+                return redirect()->route('dashboard');
+            }
+
+            return redirect()->route('home'); 
+
         }
 
-        // Jika gagal, return dengan error
         return back()->withErrors([
             'login' => 'Username atau Password salah.',
         ])->onlyInput('username');

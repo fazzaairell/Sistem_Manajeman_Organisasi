@@ -3,38 +3,44 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Organization;
+use Illuminate\Support\Facades\Storage;
 
 class GeneralController extends Controller
 {
-    public function organization()
+    
+    public function index()
     {
-        $organization = Organization::first();
-        return view('general.edit', compact('organization'));
+        return view('general.profile');
     }
 
-    public function updateOrganization(Request $request)
+    
+    public function update(Request $request)
     {
+        $user = auth()->user();
+
         $data = $request->validate([
-            'name' => 'required|string',
-            'short_name' => 'nullable|string',
-            'logo' => 'nullable|image|max:2048',
-            'address' => 'nullable|string',
-            'email' => 'nullable|email',
-            'phone' => 'nullable|string',
-            'website' => 'nullable|url',
-            'founded_year' => 'nullable|digits:4',
+            'name'     => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $user->id,
+            'email'    => 'required|email|unique:users,email,' . $user->id,
+            'jabatan'  => 'nullable|string|max:255',
+            'nrp'      => 'nullable|string|max:255',
+            'jurusan'  => 'nullable|string|max:255',
+            'photo'    => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('photo')) {
+
+            if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+                Storage::disk('public')->delete($user->photo);
+            }
+
+            $data['photo'] = $request->file('photo')->store('photos', 'public');
         }
 
-        Organization::updateOrCreate(['id' => 1], $data);
+        $user->update($data);
 
         return redirect()
-            ->route('general.edit')
-            ->with('success', 'Profil organisasi berhasil diperbarui');
+            ->back()
+            ->with('success', 'Profil berhasil diperbarui');
     }
 }
-
