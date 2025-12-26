@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
 
     // Announcement Routes
     Route::get('/announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
+    Route::get('/announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
     Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
     Route::get('/announcement/{id}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
     Route::put('/announcement/{id}', [AnnouncementController::class, 'update'])->name('announcements.update');
