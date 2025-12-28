@@ -2,19 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    /**
-     * Halaman dashboard setelah login
-     */
     public function index()
     {
-
-        if (auth()->user()->role_id != 1) {
+        if (!Auth::check()) {
             abort(403);
         }
-        return view('dashboard.index');
+
+        $user = Auth::user();
+
+        if ($user->role_id !== 1) {
+            abort(403);
+        }
+
+        $totalAnggota = User::where('role_id', '!=', 1)->count();
+        $eventAktif   = Event::where('status', 'aktif')->count();
+
+        return view('dashboard.index', compact(
+            'totalAnggota',
+            'eventAktif'
+        ));
     }
 }
