@@ -11,14 +11,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Pastikan user login
         if (!Auth::check()) {
             abort(403);
         }
 
         $user = Auth::user();
 
-        // Hanya admin yang boleh akses dashboard
         if ($user->role_id !== 1) {
             abort(403);
         }
@@ -26,11 +24,13 @@ class DashboardController extends Controller
         // Total anggota (selain admin)
         $totalAnggota = User::where('role_id', '!=', 1)->count();
 
-        // Event aktif
-        $eventAktif = Event::where('status', 'aktif')->count();
+        // Event aktif (sedang berlangsung hari ini)
+        $eventAktif = Event::whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now())
+            ->count();
 
-        // Pengumuman hari ini
-        $pengumumanHariIni = Announcement::whereDate('created_at', now())->count();
+        // Pengumuman hari ini (pakai kolom 'date')
+        $pengumumanHariIni = Announcement::whereDate('date', now())->count();
 
         return view('dashboard.index', compact(
             'totalAnggota',
