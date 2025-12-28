@@ -6,7 +6,9 @@
                 <div class="flex items-start justify-between">
                     <div>
                         <p class="text-sm text-gray-500 mb-1">Total Anggota</p>
-                        <h3 class="text-3xl font-bold text-gray-800">48</h3>
+                        <h3 class="text-3xl font-bold text-gray-800">
+    {{ $totalAnggota }}
+</h3>
                     </div>
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                         <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -21,7 +23,10 @@
                 <div class="flex items-start justify-between">
                     <div>
                         <p class="text-sm text-gray-500 mb-1">Event Aktif</p>
-                        <h3 class="text-3xl font-bold text-gray-800">12</h3>
+<h3 class="text-3xl font-bold text-gray-800">
+    {{ $eventAktif }}
+</h3>
+
                     </div>
                     <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                         <i class="fas fa-project-diagram text-purple-600 text-xl"></i>
