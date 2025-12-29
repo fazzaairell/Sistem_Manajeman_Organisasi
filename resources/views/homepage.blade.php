@@ -139,7 +139,7 @@
                 <p
                     class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">
                     Mengenal Kami lebih jauh disini!</p>
-                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,solid, dan berdaya
+                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif, solid, dan berdaya
                     guna.</h1>
                 <p class="p-2 w-[80%] text-[#181E4B]/85">kami merupakan wadah kolaborasi yang bertujuan untuk
                     mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
