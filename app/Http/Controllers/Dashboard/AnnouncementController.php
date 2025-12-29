@@ -46,11 +46,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-<<<<<<< HEAD
             'description' => 'nullable|string|max:255',
-=======
-            'description' => 'required',
->>>>>>> 0b0ceb857a56aa91ab0da1ec4d78d9a5ec788d12
         ]);
 
         $data = $request->all();
@@ -95,11 +91,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-<<<<<<< HEAD
             'description' => 'nullable|string|max:255',
-=======
-            'description' => 'required',
->>>>>>> 0b0ceb857a56aa91ab0da1ec4d78d9a5ec788d12
         ]);
 
         $data = $request->all();
