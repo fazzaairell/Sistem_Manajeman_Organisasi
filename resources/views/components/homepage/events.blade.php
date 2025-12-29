@@ -1,6 +1,7 @@
 @props(['events'])
 
 <div class="relative flex justify-center items-center mt-[100px]">
+
     <div class="w-[70%] space-y-2">
         <h2 class="text-purple-950 text-2xl font-semibold">Event Kami</h2>
         <div class="flex justify-between items-center">
@@ -41,4 +42,5 @@
         </div>
 
     </div>
+    
 </div>
