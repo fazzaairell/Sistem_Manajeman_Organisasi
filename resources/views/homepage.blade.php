@@ -336,7 +336,7 @@
             <h2 class="text-purple-800 text-2xl font-semibold">Koleksi terbaru</h2>
             <div class="flex justify-between items-center">
                 <h1 class="text-4xl font-bold">📰 • Galeri KAMI</h1>
-                <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
+                <p class="text-blue-800"><a href="#"> Lihat semua →</a></p>
             </div>
 
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-5">
