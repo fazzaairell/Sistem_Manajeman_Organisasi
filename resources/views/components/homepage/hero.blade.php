@@ -11,7 +11,7 @@
                 lingkungan dan masyarakat.</p>
             <button
                 class="py-4 px-8 shadow-2xl bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold ml-3 mt-5 hover:scale-110 transition-transform duration-500">
-                <a href="#">Lihat Event →</a>
+                <a href="#event">Lihat Event →</a>
             </button>
         </div>
         <div class="w-[50%]">
