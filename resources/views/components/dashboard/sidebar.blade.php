@@ -2,9 +2,9 @@
 
     <div class="p-6 border-b border-gray-300/40">
         <div class="flex items-center space-x-3 ">
-            <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+            <a href="{{ route('home') }}" class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
                 <i class="fas fa-building text-white text-xl"></i>
-            </div>
+            </a>
             <h1 class="text-xl font-bold">InTech</h1>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('events.index') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('')
+                <a href="{{ route('events.index') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('events.*')
     ? 'bg-purple-50 text-purple-600 font-semibold'
     : 'text-gray-600 hover:bg-gray-50'
                        }}">
@@ -40,8 +40,10 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('announcements.index') }}"
-                    class="flex items-center space-x-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg transition">
+                <a href="{{ route('announcements.index') }}" class="flex items-center space-x-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg transition {{ request()->routeIs('announcements.*')
+    ? 'bg-purple-50 text-purple-600 font-semibold'
+    : 'text-gray-600 hover:bg-gray-50'
+                       }}">
                     <i class="fas fa-newspaper w-5"></i>
                     <span>Announcement</span>
                 </a>
