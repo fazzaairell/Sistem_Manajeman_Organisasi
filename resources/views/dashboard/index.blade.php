@@ -42,7 +42,9 @@
                 <div class="flex items-start justify-between">
                     <div>
                         <p class="text-sm text-gray-500 mb-1">Pengumuman Hari Ini</p>
-                        <h3 class="text-3xl font-bold text-gray-800">24</h3>
+                        <h3 class="text-3xl font-bold text-gray-800">
+                            {{ $pengumumanHariIni }}
+                        </h3>
                     </div>
                     <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                         <i class="fas fa-tasks text-yellow-600 text-xl"></i>
@@ -58,7 +60,9 @@
                 <div class="flex items-start justify-between">
                     <div>
                         <p class="text-sm text-gray-500 mb-1">Event Mendatang</p>
-                        <h3 class="text-3xl font-bold text-gray-800">5</h3>
+                        <h3 class="text-3xl font-bold text-gray-800"> 
+                            {{$eventMendatang}} 
+                        </h3>
                     </div>
                     <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                         <i class="fas fa-calendar-check text-green-600 text-xl"></i>
