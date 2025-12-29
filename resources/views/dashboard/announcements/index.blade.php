@@ -2,7 +2,7 @@
     <div class="px-6 py-8" x-data="{ showCreateModal: false }">
         
         <!-- Page Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">Manajemen Pengumuman</h1>
                 <p class="text-sm text-gray-500 mt-1">Kelola informasi dan berita terbaru untuk anggota.</p>
@@ -12,6 +12,34 @@
                 <i class="fas fa-plus"></i>
                 <span>Tambah Pengumuman</span>
             </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <form method="GET" action="{{ route('announcements.index') }}" class="relative" x-data="{ searching: false }">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" 
+                           name="search" 
+                           value="{{ request('search') }}"
+                           @input="searching = true; $el.form.submit()"
+                           placeholder="Cari berdasarkan deskripsi, konten, atau tanggal..." 
+                           class="w-full pl-12 pr-12 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all text-sm">
+                    @if(request('search'))
+                        <a href="{{ route('announcements.index') }}" 
+                           class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    @endif
+                </div>
+                @if(request('search'))
+                    <p class="mt-2 text-sm text-gray-500">
+                        Menampilkan hasil pencarian untuk: <span class="font-semibold text-gray-700">"{{ request('search') }}"</span>
+                    </p>
+                @endif
+            </form>
         </div>
 
         @if(session('success'))
