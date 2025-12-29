@@ -42,5 +42,9 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create([
             'role_id' => $roleMahasiswa->id,
         ]);
+
+        $this->call([
+            EventSeeder::class,
+        ]);
     }
 }
