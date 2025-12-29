@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'role_id' => $roleMahasiswa->id,
         ]);
 
-        // Generate 5 mahasiswa tambahan untuk testing (opsional)
+        // Generate 5 mahasiswa tambahan untuk testing
         User::factory(5)->create([
             'role_id' => $roleMahasiswa->id,
         ]);
