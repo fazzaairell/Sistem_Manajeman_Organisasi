@@ -19,6 +19,10 @@ Route::get('/', [HomepageController::class, 'index'])->name('home');
 // Event public (tanpa login)
 Route::get('/events', [EventHomeController::class, 'index'])->name('events.public');
 Route::get('/announcements', [AnnouncementHomeController::class, 'index'])->name('announcements.public');
+Route::post('/events/{event}/register', [EventHomeController::class, 'register'])
+    ->middleware('auth') 
+    ->name('events.register');
+Route::get('/events/{event}', [EventHomeController::class, 'show'])->name('events.show');
 
 // Route untuk guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -30,6 +34,8 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
 
     Route::get('homepage', [HomepageController::class, 'index']);
+
+
 
 });
 
@@ -54,5 +60,6 @@ Route::middleware('auth')->group(function () {
 
     // Announcement Routes
     Route::resource('/dashboard/announcements', AnnouncementController::class);
+
 
 });
