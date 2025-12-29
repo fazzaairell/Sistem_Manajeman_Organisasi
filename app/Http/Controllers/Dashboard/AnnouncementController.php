@@ -74,6 +74,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
+            'description' => 'required',
         ]);
 
         $data = $request->all();
