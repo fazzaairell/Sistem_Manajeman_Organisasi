@@ -45,21 +45,24 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // General routes
+    // General routes (accessible by all authenticated users)
     Route::get('/dashboard/general', [GeneralController::class, 'index'])->name('general.profile');
     Route::put('/dashboard/general', [GeneralController::class, 'update'])->name('general.update');
     Route::put('/dashboard/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
 
-    // User Management routes (Admin only)
-    Route::resource('/dashboard/users', UserController::class);
-    Route::get('/dashboard/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
+    // Admin only routes
+    Route::middleware('admin')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Event Routes
-    Route::resource('/dashboard/events', EventController::class);
+        // User Management routes (Admin only)
+        Route::resource('/dashboard/users', UserController::class);
+        Route::get('/dashboard/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
 
-    // Announcement Routes
-    Route::resource('/dashboard/announcements', AnnouncementController::class);
+        // Event Routes (Admin only)
+        Route::resource('/dashboard/events', EventController::class);
+
+        // Announcement Routes (Admin only)
+        Route::resource('/dashboard/announcements', AnnouncementController::class);
+    });
 
 });

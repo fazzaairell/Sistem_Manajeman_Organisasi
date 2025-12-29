@@ -35,8 +35,8 @@
                             class="w-fit rounded-lg border-gray-300 focus:outline-none focus:border-purple-500 focus:ring-purple-500"
                             required>
                         <option value="">-- Pilih Status --</option>
+                        <option value="mendatang" {{ old('status') == 'mendatang' ? 'selected' : '' }}>Mendatang</option>
                         <option value="aktif" {{ old('status') == 'aktif' ? 'selected' : '' }}>Aktif</option>
-                        <option value="nonaktif" {{ old('status') == 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                         <option value="selesai" {{ old('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
                     </select>
                     @error('status')

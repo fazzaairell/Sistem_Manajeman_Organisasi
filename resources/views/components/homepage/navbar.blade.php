@@ -7,6 +7,9 @@
                     <a href="{{ route('home') }}" class="hover:text-purple-500">Beranda</a>
                 </li>
                 <li>
+                    <a href="#about" class="hover:text-purple-500">Tentang Kami</a>
+                </li>
+                <li>
                     <a href="#event" class="hover:text-purple-500">Event</a>
                 </li>
                 <li>
@@ -56,6 +59,19 @@
                                 Account
                             </a>
                         </li>
+                        @if(auth()->user()->role_id === 1)
+                            {{-- Admin Menu --}}
+                            <li>
+                                <a href="{{ route('dashboard') }}" class="inline-flex items-center w-full p-2 hover:text-heading rounded transition-all duration-200 ease-in-out
+                                 hover:bg-purple-50 hover:translate-x-1">
+                                    <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="inline-flex items-center w-full p-2 text-fg-danger rounded transition-all duration-200 ease-in-out

@@ -77,8 +77,8 @@
         </x-dashboard.dashboard-card>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <x-dashboard.dasboard-activities />
-            <x-dashboard.dasboard-coming />
+            <x-dashboard.dasboard-activities :newUsers="$newUsers" :announcements="$recentAnnouncements" />
+            <x-dashboard.dasboard-coming :events="$upcomingEvents" />
         </div>
     </div>
 
