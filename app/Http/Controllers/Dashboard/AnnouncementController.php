@@ -17,6 +17,12 @@ class AnnouncementController extends Controller
         return view('dashboard.announcements.index', compact('announcements'));
     }
 
+    public function show($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        return view('dashboard.announcements.show', compact('announcement'));
+    }
+
     public function create()
     {
         return view('dashboard.announcements.create');
@@ -29,7 +35,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-            'description' => 'required',
+            'description' => 'nullable|string|max:255',
         ]);
 
         $data = $request->all();
@@ -74,7 +80,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-            'description' => 'required',
+            'description' => 'nullable|string|max:255',
         ]);
 
         $data = $request->all();
