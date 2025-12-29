@@ -36,7 +36,6 @@
                 </ul>
             </nav>
             <div>
-
                 @auth
                     <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
                         class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-xl hover:bg-purple-700 focus:ring-4 focus:ring-purple-300"
@@ -64,7 +63,7 @@
                         <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
                             <li>
                                 <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
-                         hover:bg-purple-50 hover:translate-x-1">
+                             hover:bg-purple-50 hover:translate-x-1">
                                     <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-width="2"
@@ -75,7 +74,7 @@
                             </li>
                             <li>
                                 <a href="#" class="inline-flex items-center w-full p-2 hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
+                                         hover:bg-purple-50 hover:translate-x-1">
                                     <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
@@ -86,7 +85,7 @@
                             </li>
                             <li>
                                 <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
+                                         hover:bg-purple-50 hover:translate-x-1">
                                     <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -98,7 +97,7 @@
                             </li>
                             <li>
                                 <a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded transition-all duration-200 ease-in-out
-                                     hover:bg-purple-50 hover:translate-x-1">
+                                         hover:bg-purple-50 hover:translate-x-1">
                                     <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -111,7 +110,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="inline-flex items-center w-full p-2 text-fg-danger rounded transition-all duration-200 ease-in-out
-                                     hover:bg-red-50 hover:translate-x-1">
+                                         hover:bg-red-50 hover:translate-x-1">
                                     <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -131,11 +130,10 @@
 
                 @endauth
 
-
-
             </div>
 
         </div>
+
 
     </div>
 
@@ -146,15 +144,20 @@
                 <p
                     class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">
                     Mengenal Kami lebih jauh disini!</p>
-                <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif,solid, dan berdaya
-                    guna.</h1>
-                <p class="p-2 w-[80%] text-[#181E4B]/85">kami merupakan wadah kolaborasi yang bertujuan untuk
-                    mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
-                    lingkungan dan masyarakat.</p>
-                <button
-                    class="py-4 px-8 shadow-2xl bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold ml-3 mt-5 hover:scale-110 transition-transform duration-500">
-                    <a href="#">Lihat Event →</a>
-                </button>
+                <<<<<<< HEAD <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang
+                    aktif,solid, dan berdaya
+                    =======
+                    <h1 class="font-bold text-[55px] p-2 text-[#181E4B]">Mewujudkan organisasi yang aktif, solid, dan
+                        berdaya
+                        >>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                        guna.</h1>
+                    <p class="p-2 w-[80%] text-[#181E4B]/85">kami merupakan wadah kolaborasi yang bertujuan untuk
+                        mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
+                        lingkungan dan masyarakat.</p>
+                    <button
+                        class="py-4 px-8 shadow-2xl bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold ml-3 mt-5 hover:scale-110 transition-transform duration-500">
+                        <a href="#">Lihat Event →</a>
+                    </button>
             </div>
             <div class="w-[50%]">
                 <div
@@ -169,17 +172,28 @@
     <div class="relative flex justify-center items-center mt-[100px]">
         <div class="w-[70%] flex border border-gray-300 rounded-3xl">
             <div class="w-[50%] p-20 space-y-2">
-                <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak 2025
-                </p>
-                <h1 class="text-[50px] text-[#181E4B] font-bold">Tentang KAMI</h1>
-                <p class="text-[#181E4B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non facere officia ab
-                    autem. Dolor ipsa
-                    blanditiis animi officiis obcaecati accusantium nemo accusamus impedit excepturi maiores, in, est
-                    quam dolores odio.</p>
-                <button
-                    class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
-                    <a href="#home">Pelajari Lebih lanjut →</a>
-                </button>
+                <<<<<<< HEAD <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">
+                    Sejak 2025
+                    </p>
+                    =======
+                    <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak
+                        2025</p>
+                    >>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                    <h1 class="text-[50px] text-[#181E4B] font-bold">Tentang KAMI</h1>
+                    <p class="text-[#181E4B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non facere
+                        officia ab
+                        autem. Dolor ipsa
+                        blanditiis animi officiis obcaecati accusantium nemo accusamus impedit excepturi maiores, in,
+                        est
+                        quam dolores odio.</p>
+                    <<<<<<< HEAD <button
+                        class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
+                        =======
+                        <button
+                            class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-[8px] text-white font-bold py-4 px-8 mt-5 hover:scale-110 transition-transform duration-500">
+                            >>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                            <a href="#home">Pelajari Lebih lanjut →</a>
+                        </button>
             </div>
             <div id="event" class="w-[50%] flex justify-center items-center">
                 <div class="w-[85%] h-[70%] rounded-2xl overflow-hidden shadow-md">
@@ -221,10 +235,11 @@
                         </svg>
                         <span>10 Band Terbaik</span>
                     </p>
-
-                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
-                        <a href="#">Lihat Event →</a>
-                    </button>
+                    <<<<<<< HEAD=======>>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                        <button
+                            class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
+                            <a href="#">Lihat Event →</a>
+                        </button>
                 </div>
 
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
@@ -246,10 +261,10 @@
                         </svg>
                         <span>10 Band Terbaik</span>
                     </p>
-
-                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400">
-                        <a href="#">Lihat Event →</a>
-                    </button>
+                    <<<<<<< HEAD=======>>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                        <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400">
+                            <a href="#">Lihat Event →</a>
+                        </button>
                 </div>
 
                 <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4">
@@ -272,10 +287,11 @@
                         </svg>
                         <span>10 Band Terbaik</span>
                     </p>
-
-                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
-                        <a href="#">Lihat Event →</a>
-                    </button>
+                    <<<<<<< HEAD=======>>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                        <button
+                            class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
+                            <a href="#">Lihat Event →</a>
+                        </button>
                 </div>
             </div>
 
@@ -292,52 +308,52 @@
 
             <div class="max-w-7xl mx-auto px-4 py-8">
                 <div class="grid gap-6 md:grid-cols-3">
+                    <<<<<<< HEAD=======>>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                        <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                            <img src="/storage/photos/page.png" alt=""
+                                class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
+                            <div
+                                class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
+                                Libur
+                            </div>
 
-                    <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
-                        <img src="/storage/photos/page.png" alt=""
-                            class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
-                        <div
-                            class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
-                            Libur
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <p class="text-xs mb-1">19 December 2025</p>
+                                <h3 class="text-lg font-bold leading-snug">
+                                    Libur dari 2025 hingga 2027
+                                </h3>
+                            </div>
                         </div>
 
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <p class="text-xs mb-1">19 December 2025</p>
-                            <h3 class="text-lg font-bold leading-snug">
-                                Libur dari 2025 hingga 2027
-                            </h3>
+                        <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                            <img src="/storage/photos/page.png" alt=""
+                                class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
+                            <div
+                                class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
+                                Libur
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <p class="text-xs mb-1">19 December 2025</p>
+                                <h3 class="text-lg font-bold leading-snug">
+                                    Libur dari 2025 hingga 2027
+                                </h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
-                        <img src="/storage/photos/page.png" alt=""
-                            class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
-                        <div
-                            class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
-                            Libur
+                        <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
+                            <img src="/storage/photos/page.png" alt="Berita 3"
+                                class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
+                            <div
+                                class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
+                                Libur
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <p class="text-xs mb-1">19 December 2025</p>
+                                <h3 class="text-lg font-bold leading-snug">
+                                    libur dari 2025 hingga 2027
+                                </h3>
+                            </div>
                         </div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <p class="text-xs mb-1">19 December 2025</p>
-                            <h3 class="text-lg font-bold leading-snug">
-                                Libur dari 2025 hingga 2027
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
-                        <img src="/storage/photos/page.png" alt="Berita 3"
-                            class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90" />
-                        <div
-                            class="absolute top-3 left-3 bg-black bg-opacity-40 text-white text-xs font-semibold rounded-md px-2 py-1 border border-white">
-                            Libur
-                        </div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <p class="text-xs mb-1">19 December 2025</p>
-                            <h3 class="text-lg font-bold leading-snug">
-                                libur dari 2025 hingga 2027
-                            </h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -349,7 +365,10 @@
             <h2 class="text-purple-800 text-2xl font-semibold">Koleksi terbaru</h2>
             <div class="flex justify-between items-center">
                 <h1 class="text-4xl font-bold">📰 • Galeri KAMI</h1>
-                <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
+                <<<<<<< HEAD <p class="text-blue-800"><a href="#">Lihat semua →</a></p>
+                    =======
+                    <p class="text-blue-800"><a href="#"> Lihat semua →</a></p>
+                    >>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
             </div>
 
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-5">
@@ -415,13 +434,15 @@
                 </ul>
             </nav>
 
-            <!-- Copyright -->
-            <div class="mt-8 text-xs text-gray-500">
-                © 2025 Sistem Manajemen Organisasi. All Rights Reserved.
-                <br>
-                Made with <span class="text-red-500">♥</span> by
-                <span class="text-red-500">Intech~</span>
-            </div>
+            <<<<<<< HEAD <!-- Copyright -->
+                =======
+                >>>>>>> 173415d71bc0334261f574e13f6163a79a0a8b09
+                <div class="mt-8 text-xs text-gray-500">
+                    © 2025 Sistem Manajemen Organisasi. All Rights Reserved.
+                    <br>
+                    Made with <span class="text-red-500">♥</span> by
+                    <span class="text-red-500">Intech~</span>
+                </div>
 
         </div>
     </footer>
