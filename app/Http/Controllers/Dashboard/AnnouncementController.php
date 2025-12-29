@@ -9,12 +9,29 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil semua data pengumuman terbaru
-        $announcements = Announcement::latest()->paginate();
+        // Mengambil semua data pengumuman terbaru dengan search
+        $query = Announcement::query();
+
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('description', 'like', '%' . $search . '%')
+                  ->orWhere('content', 'like', '%' . $search . '%')
+                  ->orWhere('date', 'like', '%' . $search . '%');
+            });
+        }
+
+        $announcements = $query->latest()->paginate(10);
 
         return view('dashboard.announcements.index', compact('announcements'));
+    }
+
+    public function show($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        return view('dashboard.announcements.show', compact('announcement'));
     }
 
     public function create()
@@ -29,6 +46,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
+            'description' => 'nullable|string|max:255',
         ]);
 
         $data = $request->all();
@@ -57,14 +75,14 @@ class AnnouncementController extends Controller
         return back()->with('success', 'Pengumuman berhasil dihapus!');
     }
 
-    // Fungsi untuk menampilkan halaman form edit
+    // Fungsi Menampilkan Halaman Form Edit
     public function edit($id)
     {
         $announcement = Announcement::findOrFail($id);
         return view('dashboard.announcements.edit', compact('announcement'));
     }
 
-    // Fungsi untuk memproses pembaruan data
+    // Fungsi Pembaruan Data
     public function update(Request $request, $id)
     {
         $announcement = Announcement::findOrFail($id);
@@ -73,6 +91,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
+            'description' => 'nullable|string|max:255',
         ]);
 
         $data = $request->all();

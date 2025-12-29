@@ -5,11 +5,9 @@
             <p class="text-sm text-gray-500 mt-1">Selamat datang di Sistem Manajemen Organisasi</p>
         </div>
         <div class="flex items-center space-x-4">
-            <button class="relative text-gray-600 hover:text-gray-800">
-                <i class="fas fa-bell text-xl"></i>
-                <span
-                    class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
-            </button>
+            <a href="{{ route('home') }}" class="relative text-gray-600 hover:text-gray-800">
+                <i class="fas fa-house-user w-10 text-xl"></i>
+            </a>
         </div>
     </div>
 </header>

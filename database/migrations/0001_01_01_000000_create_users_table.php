@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('photo')->nullable();
+            $table->string('nrp')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('jabatan')->nullable();
             $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
