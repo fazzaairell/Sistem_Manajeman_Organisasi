@@ -7,7 +7,7 @@
                     <a href="#" class="hover:text-purple-500">Beranda</a>
                 </li>
                 <li>
-                    <a href="#event" class="hover:text-purple-500">Event</a>
+                    <a href="#" class="hover:text-purple-500">Event</a>
                 </li>
                 <li>
                     <a href="#pengumuman" class="hover:text-purple-500">Pengumuman</a>
@@ -73,7 +73,7 @@
                 </div>
             @else
                 <a href="{{ route('login') }}"
-                    class="w-fit px-5 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:scale-95">
+                    class="w-fit px-5 py-2 text-black hover:text-purple-600 hover:underline">
                     Masuk
                 </a>
 

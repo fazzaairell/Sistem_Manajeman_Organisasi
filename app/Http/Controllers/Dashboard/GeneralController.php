@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,7 @@ class GeneralController extends Controller
 {
     public function index()
     {
-        return view('general.profile');
+        return view('dashboard.general.profile');
     }
 
 
