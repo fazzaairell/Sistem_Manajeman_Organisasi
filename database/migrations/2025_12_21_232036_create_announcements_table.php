@@ -17,6 +17,7 @@ return new class extends Migration
         $table->date('date'); // Tanggal pengumuman
         $table->text('description')->nullable(); // Deskripsi singkat
         $table->text('content'); // Isi pengumuman
+        $table->text('description'); // Deskripsi pengumuman
         $table->timestamps();
         });
     }
