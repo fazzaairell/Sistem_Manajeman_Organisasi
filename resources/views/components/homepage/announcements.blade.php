@@ -1,6 +1,7 @@
 @props(['announcements'])
 
 <div id="pengumuman" class="relative flex justify-center items-center mt-20">
+    
     <div class="w-[70%] space-y-2">
         <h2 class="text-purple-950 text-2xl font-semibold">Info Terkini</h2>
         <div class="flex justify-between items-center">
@@ -48,4 +49,5 @@
             </div>
         </div>
     </div>
+
 </div>
