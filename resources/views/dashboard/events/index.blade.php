@@ -75,7 +75,7 @@
                                 <button data-modal-target="edit-event-{{ $event->id }}"
                                     data-modal-toggle="edit-event-{{ $event->id }}"
                                     class="text-blue-600 hover:underline inline-flex items-center gap-1">
-                                    <i class="fas fa-pen"></i> Edit
+                                    <i class="fas fa-pen-to-square text-lg"></i>
                                 </button>
                                 <div id="edit-event-{{ $event->id }}" tabindex="-1" aria-hidden="true"
                                     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
@@ -189,8 +189,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button class="inline-flex items-center gap-1 text-red-600 hover:underline">
-                                        <i class="fas fa-trash"></i>
-                                        Hapus
+                                        <i class="fas fa-trash text-lg"></i>
                                     </button>
                                 </form>
                             </td>

@@ -28,7 +28,9 @@ class UserController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('dashboard.users.index', compact('users', 'search'));
+        $roles = Role::all();
+
+        return view('dashboard.users.index', compact('users', 'search', 'roles'));
     }
 
     /**
