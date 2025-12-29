@@ -1,4 +1,4 @@
-<div class="relative flex justify-center items-center mt-[100px]">
+<div class="relative flex justify-center items-center mt-[100px] mb-[100px]">
     <div class="w-[70%] flex border border-gray-300 rounded-3xl">
         <div class="w-[50%] p-20 space-y-2">
             <p class="text-white w-fit p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl">Sejak 2025</p>

@@ -35,8 +35,10 @@ Route::middleware('guest')->group(function () {
 
 // Route yang diproteksi (harus login)
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // General routes
     Route::get('/dashboard/general', [GeneralController::class, 'index'])->name('general.profile');

@@ -2,6 +2,11 @@
 
     <div id="pengumuman" class="relative flex justify-center items-center mt-20">
         <div class="w-[70%] space-y-2">
+            <div class="mb-[60px]">
+                <h2 class="text-3xl font-bold text-purple-950">Pengumuman</h2>
+                <p class="text-gray-600 mt-2">Berikut adalah pengumuman terbaru kami</p>
+            </div>
+
 
             <div class="max-w-7xl mx-auto px-4 py-8">
                 <div class="grid gap-6 md:grid-cols-3">

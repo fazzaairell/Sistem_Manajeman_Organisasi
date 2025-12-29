@@ -7,10 +7,10 @@
                     <a href="{{ route('home') }}" class="hover:text-purple-500">Beranda</a>
                 </li>
                 <li>
-                    <a href="{{ route('events.public') }}" class="hover:text-purple-500">Event</a>
+                    <a href="#event" class="hover:text-purple-500">Event</a>
                 </li>
                 <li>
-                    <a href="{{ route('announcements.public') }}" class="hover:text-purple-500">Pengumuman</a>
+                    <a href="#pengumuman" class="hover:text-purple-500">Pengumuman</a>
                 </li>
                 <li>
                     <a href="#galeri" class="hover:text-purple-500">Galeri</a>
@@ -23,7 +23,7 @@
         <div>
             @auth
                 <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
-                    class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-black bg-transparant hover:underline hover:text-purple-600"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 text-sm rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:scale-95"
                     type="button">
                     {{ auth()->user()->username }}
                     <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -73,7 +73,7 @@
                 </div>
             @else
                 <a href="{{ route('login') }}"
-                    class="w-fit px-5 py-2 font-semibold font-medium text-black hover:text-purple-600 hover:underline">
+                    class="w-fit px-5 py-2 font-semibold rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:scale-95">
                     Masuk
                 </a>
 

@@ -2,8 +2,9 @@
 
     <div class="relative flex flex-col items-center mt-24 space-y-8">
         <div class="w-[70%] space-y-6">
+
             @forelse($events as $event)
-                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-300/40 flex flex-col h-full">
 
                     <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('images/default-event.png') }}"
                         alt="Event Image" class="w-full h-80 object-contain">
