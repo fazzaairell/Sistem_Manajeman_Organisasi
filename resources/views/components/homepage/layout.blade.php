@@ -22,18 +22,6 @@
     <!-- Alpine.js v3 -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    <script>
-        // di halaman lain
-        navigate("/", { state: { scrollTo: "galeri" } });
-
-        // di homepage, cek state dan scroll
-        useEffect(() => {
-            if (location.state?.scrollTo === "galeri") {
-                document.getElementById("galeri").scrollIntoView({ behavior: "smooth" });
-            }
-        }, []);
-    </script>
-
 
 </body>
 
