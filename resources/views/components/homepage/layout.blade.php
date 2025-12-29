@@ -11,22 +11,18 @@
     ])
 </head>
 
-<body class="bg-white ">
+<body class="bg-white">
 
     <x-homepage.navbar />
 
-    <x-homepage.hero />
+    {{ $slot }}
 
-    <x-homepage.about />
-
-    <x-homepage.events />
-
-    <x-homepage.announcements />
-
-    <x-homepage.gallery />
-   
     <x-homepage.footer />
-    
+
+    <!-- Alpine.js v3 -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
 </body>
 
 </html>

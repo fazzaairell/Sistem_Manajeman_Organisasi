@@ -4,13 +4,13 @@
         <nav>
             <ul class="flex justify-center items-center space-x-10">
                 <li>
-                    <a href="#" class="hover:text-purple-500">Beranda</a>
+                    <a href="{{ route('home') }}" class="hover:text-purple-500">Beranda</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-purple-500">Event</a>
+                    <a href="{{ route('events.public') }}" class="hover:text-purple-500">Event</a>
                 </li>
                 <li>
-                    <a href="#pengumuman" class="hover:text-purple-500">Pengumuman</a>
+                    <a href="{{ route('announcements.public') }}" class="hover:text-purple-500">Pengumuman</a>
                 </li>
                 <li>
                     <a href="#galeri" class="hover:text-purple-500">Galeri</a>
@@ -73,7 +73,7 @@
                 </div>
             @else
                 <a href="{{ route('login') }}"
-                    class="w-fit px-5 py-2 text-black hover:text-purple-600 hover:underline">
+                    class="w-fit px-5 py-2 font-semibold font-medium text-black hover:text-purple-600 hover:underline">
                     Masuk
                 </a>
 
