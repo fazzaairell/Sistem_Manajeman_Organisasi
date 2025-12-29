@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Homepage\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -19,6 +20,10 @@ Route::get('/', [HomepageController::class, 'index'])->name('home');
 // Event public (tanpa login)
 Route::get('/events', [EventHomeController::class, 'index'])->name('events.public');
 Route::get('/announcements', [AnnouncementHomeController::class, 'index'])->name('announcements.public');
+Route::post('/events/{event}/register', [EventHomeController::class, 'register'])
+    ->middleware('auth') 
+    ->name('events.register');
+Route::get('/events/{event}', [EventHomeController::class, 'show'])->name('events.show');
 
 // Route untuk guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -31,28 +36,40 @@ Route::middleware('guest')->group(function () {
 
     Route::get('homepage', [HomepageController::class, 'index']);
 
+
+
 });
+
+// Route menampilkan profile user
+Route::middleware(['auth'])->group(function () {
+    Route::get('/users', [ProfileController::class, 'index'])->name('profile.index');
+});
+
 
 // Route yang diproteksi (harus login)
 Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // General routes
+    // General routes (accessible by all authenticated users)
     Route::get('/dashboard/general', [GeneralController::class, 'index'])->name('general.profile');
     Route::put('/dashboard/general', [GeneralController::class, 'update'])->name('general.update');
     Route::put('/dashboard/general/change-password', [GeneralController::class, 'changePassword'])->name('general.change-password');
 
-    // User Management routes (Admin only)
-    Route::resource('/dashboard/users', UserController::class);
-    Route::get('/dashboard/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
+    // Admin only routes
+    Route::middleware('admin')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Event Routes
-    Route::resource('/dashboard/events', EventController::class);
+        // User Management routes (Admin only)
+        Route::resource('/dashboard/users', UserController::class);
+        Route::get('/dashboard/users-export-pdf', [UserController::class, 'exportPdf'])->name('users.export-pdf');
 
-    // Announcement Routes
-    Route::resource('/dashboard/announcements', AnnouncementController::class);
+        // Event Routes (Admin only)
+        Route::resource('/dashboard/events', EventController::class);
+
+        // Announcement Routes (Admin only)
+        Route::resource('/dashboard/announcements', AnnouncementController::class);
+    });
+
 
 });
