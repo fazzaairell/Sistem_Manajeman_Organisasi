@@ -10,6 +10,6 @@ class Announcement extends Model
         'image', 
         'date', 
         'content',
-        'description',
+        'description'
     ];
 }
