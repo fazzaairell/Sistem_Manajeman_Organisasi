@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -75,6 +74,6 @@ class RegisterController extends Controller
         // Regenerate session
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Registrasi berhasil!');
+        return redirect()->route('homepage')->with('success', 'Registrasi berhasil!');
     }
 }

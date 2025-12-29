@@ -16,7 +16,6 @@ return new class extends Migration
         $table->string('image'); // Gambar pengumuman
         $table->date('date'); // Tanggal pengumuman
         $table->text('content'); // Isi pengumuman
-        $table->text('description'); // Deskripsi pengumuman
         $table->timestamps();
         });
     }

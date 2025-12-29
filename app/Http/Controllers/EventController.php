@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,13 +19,13 @@ class EventController extends Controller
                 ->orWhere('penanggung_jawab', 'like', "%{$search}%")
                 ->orWhere('status', 'like', "%{$search}%");
         })->latest()->paginate();
-        return view('dashboard.events.index', compact('events'));
+        return view('events.index', compact('events'));
     }
 
     public function create()
     {
         $event = Event::all();
-        return view('dashboard.events.create', compact('event'));
+        return view('events.create', compact('event'));
     }
 
 
@@ -57,7 +56,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::findOrFail($id);
-        return view('dashboard.events.edit', compact('event'));
+        return view('events.edit', compact('event'));
     }
 
     // Update Data

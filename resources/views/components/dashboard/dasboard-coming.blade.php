@@ -1,7 +1,7 @@
 <!-- Upcoming Meetings -->
 <div class="bg-white rounded-xl shadow-sm border border-gray-100">
     <div class="p-6 border-b border-gray-300/40 flex items-center justify-between">
-        <h3 class="text-lg font-semibold text-gray-800">Pengumuman Terbaru</h3>
+        <h3 class="text-lg font-semibold text-gray-800">Event Mendatang</h3>
         <a href="#" class="text-sm text-blue-600 hover:text-blue-700">Lihat Semua</a>
     </div>
     <div class="divide-y divide-gray-300/40">

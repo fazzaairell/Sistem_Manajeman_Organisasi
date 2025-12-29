@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,12 +13,12 @@ class AnnouncementController extends Controller
         // Mengambil semua data pengumuman terbaru
         $announcements = Announcement::latest()->paginate();
 
-        return view('dashboard.announcements.index', compact('announcements'));
+        return view('announcements.index', compact('announcements'));
     }
 
     public function create()
     {
-        return view('dashboard.announcements.create');
+        return view('announcements.create');
     }
 
     // Simpan Pengumuman Baru
@@ -29,7 +28,6 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-            'description' => 'required',
         ]);
 
         $data = $request->all();
@@ -58,14 +56,14 @@ class AnnouncementController extends Controller
         return back()->with('success', 'Pengumuman berhasil dihapus!');
     }
 
-    // Fungsi Menampilkan Halaman Form Edit
+    // Fungsi untuk menampilkan halaman form edit
     public function edit($id)
     {
         $announcement = Announcement::findOrFail($id);
-        return view('dashboard.announcements.edit', compact('announcement'));
+        return view('announcements.edit', compact('announcement'));
     }
 
-    // Fungsi Pembaruan Data
+    // Fungsi untuk memproses pembaruan data
     public function update(Request $request, $id)
     {
         $announcement = Announcement::findOrFail($id);
@@ -74,7 +72,6 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
-            'description' => 'required',
         ]);
 
         $data = $request->all();

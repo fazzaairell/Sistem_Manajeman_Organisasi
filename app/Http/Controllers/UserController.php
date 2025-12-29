@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,9 +27,7 @@ class UserController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        $roles = Role::all();
-
-        return view('dashboard.users.index', compact('users', 'search', 'roles'));
+        return view('users.index', compact('users', 'search'));
     }
 
     /**
@@ -39,7 +36,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('dashboard.users.create', compact('roles'));
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -100,7 +97,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('dashboard.users.edit', compact('user', 'roles'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -191,7 +188,7 @@ class UserController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        $pdf = Pdf::loadView('dashboard.users.pdf', compact('users'));
+        $pdf = Pdf::loadView('users.pdf', compact('users'));
 
         return $pdf->download('laporan-user-' . date('Y-m-d') . '.pdf');
     }
