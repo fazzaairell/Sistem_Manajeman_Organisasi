@@ -5,7 +5,7 @@
 
             <div class="md:w-1/2 h-48 md:h-auto rounded overflow-hidden">
                 <img src="{{ $event->image ? asset('storage/' . $event->image) : '/storage/photos/page.png' }}"
-                    alt="{{ $event->title }}" class="w-full h-full object-cover">
+                    alt="{{ $event->title }}" class="w-full h-full object-cover object-center">
             </div>
 
             <div class="md:w-1/2 mt-4 md:mt-0 flex flex-col space-y-1">
