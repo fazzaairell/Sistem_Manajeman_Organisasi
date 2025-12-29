@@ -7,6 +7,9 @@
                     <a href="{{ route('home') }}" class="hover:text-purple-500">Beranda</a>
                 </li>
                 <li>
+                    <a href="#about" class="hover:text-purple-500">Tentang Kami</a>
+                </li>
+                <li>
                     <a href="#event" class="hover:text-purple-500">Event</a>
                 </li>
                 <li>
