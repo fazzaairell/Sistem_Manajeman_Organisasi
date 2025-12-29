@@ -49,7 +49,7 @@
                     </div>
                     <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
                         <li>
-                            <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
+                            <a href="{{ route("profile.index") }}" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
                                                  hover:bg-purple-50 hover:translate-x-1">
                                 <i class="fas fa-user w-5"></i>Account
                             </a>
