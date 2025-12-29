@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Homepage\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -32,6 +33,12 @@ Route::middleware('guest')->group(function () {
     Route::get('homepage', [HomepageController::class, 'index']);
 
 });
+
+// Route menampilkan profile user
+Route::middleware(['auth'])->group(function () {
+    Route::get('/users', [ProfileController::class, 'index'])->name('profile.index');
+});
+
 
 // Route yang diproteksi (harus login)
 Route::middleware('auth')->group(function () {

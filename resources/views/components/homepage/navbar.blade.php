@@ -46,7 +46,7 @@
                     </div>
                     <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
                         <li>
-                            <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
+                            <a href="{{ route('profile.index') }}" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
                              hover:bg-purple-50 hover:translate-x-1">
                                 <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" fill="none" viewBox="0 0 24 24">
