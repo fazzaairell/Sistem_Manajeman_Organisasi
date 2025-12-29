@@ -29,6 +29,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
+            'description' => 'required',
         ]);
 
         $data = $request->all();
@@ -57,14 +58,14 @@ class AnnouncementController extends Controller
         return back()->with('success', 'Pengumuman berhasil dihapus!');
     }
 
-    // Fungsi untuk menampilkan halaman form edit
+    // Fungsi Menampilkan Halaman Form Edit
     public function edit($id)
     {
         $announcement = Announcement::findOrFail($id);
         return view('dashboard.announcements.edit', compact('announcement'));
     }
 
-    // Fungsi untuk memproses pembaruan data
+    // Fungsi Pembaruan Data
     public function update(Request $request, $id)
     {
         $announcement = Announcement::findOrFail($id);
@@ -73,6 +74,7 @@ class AnnouncementController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'date' => 'required|date',
             'content' => 'required',
+            'description' => 'required',
         ]);
 
         $data = $request->all();
