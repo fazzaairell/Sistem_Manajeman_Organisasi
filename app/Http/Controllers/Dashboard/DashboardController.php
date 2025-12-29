@@ -24,11 +24,19 @@ class DashboardController extends Controller
         $eventMendatang = Event::where('status', 'Mendatang')->count();
 
 
+        // ===== DATA TERBARU =====
+        $newUsers = User::where('role_id', '!=', 1)->latest()->limit(5)->get();
+        $upcomingEvents = Event::where('status', 'Mendatang')->orderBy('start_date', 'asc')->limit(3)->get();
+        $recentAnnouncements = Announcement::latest()->limit(3)->get();
+
         return view('dashboard.index', compact(
             'totalAnggota',
             'eventAktif',
             'pengumumanHariIni',
-            'eventMendatang'
+            'eventMendatang',
+            'newUsers',
+            'upcomingEvents',
+            'recentAnnouncements'
         ));
     }
 
