@@ -39,7 +39,7 @@
                     </p>
 
                     <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
-                        <a href="{{ route('events.public') }}">Lihat Event →</a>
+                        <a href="{{ route('events.show', $event->id) }}">Lihat Event →</a>
                     </button>
                 </div>
             @endforeach

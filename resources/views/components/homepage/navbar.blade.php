@@ -49,26 +49,24 @@
                     </div>
                     <ul class="px-2 pb-2 text-sm text-body font-medium" aria-labelledby="dropdownInformationButton">
                         <li>
-                            <a href="#" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
-                             hover:bg-purple-50 hover:translate-x-1">
-                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-width="2"
-                                        d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
-                                Account
+                            <a href="{{ route("profile.index") }}" class="inline-flex items-center w-full p-2  hover:text-heading rounded transition-all duration-200 ease-in-out
+                                                 hover:bg-purple-50 hover:translate-x-1">
+                                <i class="fas fa-user w-5"></i>Account
                             </a>
                         </li>
+                        @if(auth()->user()->role?->name === 'admin')
+                            <li>
+                                <a href="{{ route('dashboard') }}" class="inline-flex items-center w-full p-2 hover:text-heading rounded transition-all
+                                                       hover:bg-purple-50 hover:translate-x-1">
+                                    <i class="fas fa-chart-line w-5"></i>Dashboard
+                                </a>
+                            </li>
+                        @endif
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="inline-flex items-center w-full p-2 text-fg-danger rounded transition-all duration-200 ease-in-out
-                                         hover:bg-red-50 hover:translate-x-1">
-                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
-                                </svg>
+                                                             hover:bg-red-50 hover:translate-x-1">
+                               <i class="fas fa-right-from-bracket w-5"></i>
                                 Sign out
                             </button>
                         </form>
