@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\GeneralController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\EventController;
 use App\Http\Controllers\Dashboard\AnnouncementController;
+use App\Http\Controllers\Dashboard\GalleryController;
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
@@ -69,6 +70,10 @@ Route::middleware('auth')->group(function () {
 
         // Announcement Routes (Admin only)
         Route::resource('/dashboard/announcements', AnnouncementController::class);
+
+        // Gallery Routes (Admin only)
+        Route::resource('dashboard/gallery', GalleryController::class);
+
     });
 
 
