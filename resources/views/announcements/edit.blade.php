@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Pengumuman</title>
+<x-dashboard.layout title="Edit Announcement">
     <style>
         body { font-family: sans-serif; margin: 40px; }
         .form-section { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; max-width: 600px; }
         input, textarea { display: block; width: 100%; margin-bottom: 15px; padding: 10px; box-sizing: border-box; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        button { background: #963fc9ff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
         .btn-back { text-decoration: none; color: #666; margin-left: 10px; }
     </style>
 </head>
@@ -36,5 +32,4 @@
         </form>
     </div>
 
-</body>
-</html>
+</x-dashboard.layout>
