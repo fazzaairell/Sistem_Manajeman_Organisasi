@@ -9,10 +9,21 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil semua data pengumuman terbaru
-        $announcements = Announcement::latest()->paginate();
+        // Mengambil semua data pengumuman terbaru dengan search
+        $query = Announcement::query();
+
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('description', 'like', '%' . $search . '%')
+                  ->orWhere('content', 'like', '%' . $search . '%')
+                  ->orWhere('date', 'like', '%' . $search . '%');
+            });
+        }
+
+        $announcements = $query->latest()->paginate(10);
 
         return view('dashboard.announcements.index', compact('announcements'));
     }
