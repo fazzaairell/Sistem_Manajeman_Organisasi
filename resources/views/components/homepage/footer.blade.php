@@ -1,53 +1,61 @@
-<footer class="bg-white  mt-20">
-    <div class="w-[70%] mx-auto px-6 py-10 text-center border-t border-gray-300/40">
+<footer class="bg-gradient-to-b from-white to-gray-50 mt-20 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            
+            <!-- Brand Section -->
+            <div class="flex flex-col items-center md:items-start">
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="/images/koni-logo.png" alt="Logo" class="h-12">
+                    <h2 class="text-base font-bold text-gray-800 leading-tight">
+                        Sistem Manajemen<br>Organisasi
+                    </h2>
+                </div>
+                <p class="text-sm text-gray-600 text-center md:text-left">
+                    Wadah kolaborasi untuk mengembangkan potensi anggota
+                </p>
+            </div>
 
-        <div class="flex flex-col items-center gap-3">
-            <img src="/images/koni-logo.png" alt="Intech logo" class="h-16">
-            <h2 class="text-lg font-bold text-blue-900 leading-tight">
-                SISTEM<br>
-                MANAJEMEN<br>
-                ORGANISASI
-            </h2>
+            <!-- Quick Links -->
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Menu</h3>
+                <nav>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="{{ route('home') }}" class="hover:text-purple-600 transition">Beranda</a></li>
+                        <li><a href="#event" class="hover:text-purple-600 transition">Event</a></li>
+                        <li><a href="#pengumuman" class="hover:text-purple-600 transition">Pengumuman</a></li>
+                        <li><a href="#galeri" class="hover:text-purple-600 transition">Galeri</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Contact Info -->
+            <div id="kontak" class="flex flex-col items-center md:items-start">
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Kontak</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-phone w-4 text-purple-600"></i>
+                        <span>(081) 777777</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-envelope w-4 text-purple-600"></i>
+                        <span>intech@gmail.com</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt w-4 text-purple-600"></i>
+                        <span>Jl. Haji Ridho 1, Bandung</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <p class="mt-4 text-sm text-gray-600 max-w-3xl mx-auto">
-            kami merupakan wadah kolaborasi yang bertujuan untuk
-            mengembangkan potensi anggota, memperkuat kebersamaan, serta memberikan kontribusi positif bagi
-            lingkungan dan masyarakat...
-            <a href="#" class="text-blue-700 hover:underline">Baca Selengkapnya</a>
-        </p>
-
-        <div id="kontak" class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-            <div class="flex items-center gap-2">
-                <span>📞</span>
-                <span>(081) 777777</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span>✉️</span>
-                <span>intech@gmail.com</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span>📍</span>
-                <span>Jl. Haji Ridho 1, Bandung</span>
-            </div>
-        </div>
-
-        <nav class="mt-8">
-            <ul class="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-800">
-                <li><a href="#" class="hover:text-red-500">Beranda</a></li>
-                <li><a href="#" class="hover:text-red-500">Tentang KAMI</a></li>
-                <li><a href="#" class="hover:text-red-500">Galeri</a></li>
-                <li><a href="#" class="hover:text-red-500">Event</a></li>
-                <li><a href="#" class="hover:text-red-500">Pengumuman</a></li>
-                <li><a href="#" class="hover:text-red-500">Kontak</a></li>
-            </ul>
-        </nav>
-
-        <div class="mt-8 text-xs text-gray-500">
-            © 2025 Sistem Manajemen Organisasi. All Rights Reserved.
-            <br>
-            Made with <span class="text-red-500">♥</span> by
-            <span class="text-red-500">Intech~</span>
+        <!-- Bottom Bar -->
+        <div class="pt-6 border-t border-gray-200 text-center">
+            <p class="text-xs text-gray-500">
+                © 2025 Sistem Manajemen Organisasi. All Rights Reserved.
+            </p>
         </div>
 
     </div>
