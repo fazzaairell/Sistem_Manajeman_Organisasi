@@ -1,5 +1,4 @@
 <div id="home" class="relative flex justify-center items-center mt-20">
-
     <div class="w-[70%] flex rounded-tr-[150px] overflow-hidden">
         <div class="w-[50%] p-2 space-y-2">
             <p class="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 w-fit rounded-2xl text-[12px] ml-3 text-white">
@@ -15,10 +14,8 @@
             </button>
         </div>
         <div class="w-[50%]">
-            <div class="w-full bg-[url('/public/storage/photos/page.png')] bg-cover bg-center h-full rounded-bl-full">
-
+            <div class="w-full bg-[url('/public/image/page.png')] bg-cover bg-center h-full rounded-bl-full">
             </div>
         </div>
     </div>
-
 </div>

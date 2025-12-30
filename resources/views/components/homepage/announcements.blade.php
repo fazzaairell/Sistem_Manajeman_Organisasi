@@ -15,7 +15,7 @@
                     <div x-data="{ open: false }"
                         class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
                         <img src="{{ $announcement->image ? asset('storage/' . $announcement->image) : asset('images/default-announcement.png') }}"
-                            alt="{{ $announcement->content }}"
+                            alt="pengumuman"
                             class="w-full h-[30rem] object-cover brightness-75 transition duration-300 group-hover:brightness-90"
                             @click="open = true" />
 
