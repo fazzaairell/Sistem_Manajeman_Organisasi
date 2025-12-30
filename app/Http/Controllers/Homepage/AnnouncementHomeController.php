@@ -9,7 +9,11 @@ class AnnouncementHomeController extends Controller
 {
     public function index()
     {
-        $announcements = Announcement::latest()->take(6)->get();
+        // Ambil hanya pengumuman yang published dan aktif
+        $announcements = Announcement::published()
+            ->active()
+            ->latest('date')
+            ->paginate(9);
 
         return view('homepage.announcements.announcements', compact('announcements'));
     }
