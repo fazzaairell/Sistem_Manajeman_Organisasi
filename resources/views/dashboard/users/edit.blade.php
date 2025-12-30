@@ -1,10 +1,21 @@
 <x-dashboard.layout title="Edit User">
 
-    <div class="bg-white shadow-sm rounded-xl p-6 space-y-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 space-y-6">
 
-        <h1 class="text-xl font-semibold text-gray-800 border-b pb-3 border-gray-300/40">
-            Edit User
-        </h1>
+        <!-- Header Section -->
+        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                    Edit User
+                </h1>
+                <p class="text-sm text-gray-500 mt-1">Perbarui informasi pengguna</p>
+            </div>
+            <a href="{{ route('users.index') }}"
+               class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
+                <i class="fas fa-arrow-left text-sm"></i>
+                <span>Kembali</span>
+            </a>
+        </div>
 
         <form method="POST" action="{{ route('users.update', $user->id) }}"
               enctype="multipart/form-data" class="space-y-6">
@@ -13,117 +24,135 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <div class="md:col-span-2 flex items-center gap-4">
-                    <div
-                        class="w-24 h-24 rounded-full border flex items-center justify-center
-                        bg-gray-100 overflow-hidden">
-
-                        @if ($user->photo)
-                            <img src="{{ asset('storage/' . $user->photo) }}"
-                                class="w-full h-full object-cover">
-                        @else
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-10 h-10 text-gray-400"
-                                fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M15.75 6a3.75 3.75 0 11-7.5 0
-                                        3.75 3.75 0 017.5 0zM4.5 20.25
-                                        a7.5 7.5 0 0115 0" />
-                            </svg>
-                        @endif
-
-                    </div>
-
-                    <div>
-                        <p class="text-sm font-medium text-gray-700">
-                            Foto Profile
-                        </p>
-                        <p class="text-xs text-gray-500">
-                            
-                        </p>
+                <!-- Current Photo Display -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                        <div class="w-20 h-20 rounded-full border-2 border-white shadow-lg overflow-hidden bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            @if ($user->photo)
+                                <img src="{{ asset('storage/' . $user->photo) }}"
+                                    class="w-full h-full object-cover"
+                                    alt="{{ $user->name }}">
+                            @else
+                                @php
+                                    $nameParts = explode(' ', $user->name);
+                                    $initials = '';
+                                    if (count($nameParts) >= 2) {
+                                        $initials = strtoupper(substr($nameParts[0], 0, 1) . substr($nameParts[1], 0, 1));
+                                    } else {
+                                        $initials = strtoupper(substr($user->name, 0, 2));
+                                    }
+                                @endphp
+                                <span class="text-white font-bold text-lg">{{ $initials }}</span>
+                            @endif
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800">
+                                {{ $user->name }}
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                {{ $user->email }}
+                            </p>
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-white rounded-full text-xs font-medium text-purple-600 mt-1">
+                                <i class="fas fa-shield-halved"></i>
+                                {{ ucfirst($user->role->name) }}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-
-                {{-- Upload Foto --}}
+                <!-- Upload Foto Baru -->
                 <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Upload Foto Baru (Opsional)
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-image text-purple-500 mr-1"></i>
+                        Upload Foto Baru <span class="text-gray-400">(Opsional)</span>
                     </label>
-                    <input type="file" name="photo" accept="image/*"
-                        class="block w-full text-sm text-gray-500
-                        file:mr-4 file:py-2 file:px-4
-                        file:rounded-lg file:border-0
-                        file:text-sm file:font-semibold
-                        file:bg-purple-50 file:text-purple-700
-                        hover:file:bg-purple-100">
-
-                    <p class="mt-1 text-xs text-gray-500">
-                        JPG, PNG, GIF • Maks 2MB
+                    <div class="relative">
+                        <input type="file" name="photo" accept="image/*"
+                            class="block w-full text-sm text-gray-500
+                                file:mr-4 file:py-3 file:px-4
+                                file:rounded-xl file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-gradient-to-r file:from-purple-50 file:to-purple-100
+                                file:text-purple-700
+                                hover:file:from-purple-100 hover:file:to-purple-200
+                                file:cursor-pointer file:transition-all
+                                border border-gray-200 rounded-xl
+                                focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-500 flex items-center gap-1">
+                        <i class="fas fa-info-circle"></i>
+                        JPG, PNG, GIF • Maksimal 2MB
                     </p>
-
                     @error('photo')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Nama --}}
+                <!-- Nama Lengkap -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Nama Lengkap
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-user text-purple-500 mr-1"></i>
+                        Nama Lengkap <span class="text-red-500">*</span>
                     </label>
                     <input type="text" name="name"
                         value="{{ old('name', $user->name) }}"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         required>
-
                     @error('name')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Email --}}
+                <!-- Email -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Email
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-envelope text-purple-500 mr-1"></i>
+                        Email <span class="text-red-500">*</span>
                     </label>
                     <input type="email" name="email"
                         value="{{ old('email', $user->email) }}"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         required>
-
                     @error('email')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Username --}}
+                <!-- Username -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Username
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-at text-purple-500 mr-1"></i>
+                        Username <span class="text-red-500">*</span>
                     </label>
                     <input type="text" name="username"
                         value="{{ old('username', $user->username) }}"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         required>
-
                     @error('username')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Role --}}
+                <!-- Role -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Role
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-shield-halved text-purple-500 mr-1"></i>
+                        Role <span class="text-red-500">*</span>
                     </label>
                     <select name="role_id"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         required>
                         <option value="">-- Pilih Role --</option>
                         @foreach($roles as $role)
@@ -133,54 +162,59 @@
                             </option>
                         @endforeach
                     </select>
-
                     @error('role_id')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Password --}}
+                <!-- Password Baru -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-lock text-purple-500 mr-1"></i>
                         Password Baru
                     </label>
                     <input type="password" name="password"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         placeholder="Kosongkan jika tidak diubah">
-
-                    <p class="mt-1 text-xs text-gray-500">
+                    <p class="mt-2 text-xs text-gray-500 flex items-center gap-1">
+                        <i class="fas fa-info-circle"></i>
                         Minimal 8 karakter, kombinasi huruf besar & kecil
                     </p>
-
                     @error('password')
-                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <p class="mt-2 text-sm text-red-500 flex items-center gap-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
-                {{-- Konfirmasi Password --}}
+                <!-- Konfirmasi Password -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-lock text-purple-500 mr-1"></i>
                         Konfirmasi Password
                     </label>
                     <input type="password" name="password_confirmation"
-                        class="w-full rounded-lg border-gray-300
-                        focus:border-purple-500 focus:ring-purple-500"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                         placeholder="********">
                 </div>
 
             </div>
 
-            {{-- Action --}}
-            <div class="flex justify-end gap-3 pt-4 border-t border-gray-300/40">
+            <!-- Action Buttons -->
+            <div class="flex items-center justify-end gap-3 pt-6 border-t border-gray-200">
                 <a href="{{ route('users.index') }}"
-                    class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    Batal
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-colors">
+                    <i class="fas fa-times text-sm"></i>
+                    <span>Batal</span>
                 </a>
-
                 <button type="submit"
-                    class="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600">
-                    Simpan Perubahan
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-purple-500/30">
+                    <i class="fas fa-save text-sm"></i>
+                    <span>Simpan Perubahan</span>
                 </button>
             </div>
 

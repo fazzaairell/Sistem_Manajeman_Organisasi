@@ -1,204 +1,170 @@
 <x-dashboard.layout title="Manajemen Event">
 
-    <div class="bg-white shadow-sm p-10 space-y-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 space-y-6" 
+         x-data="{ 
+             search: '{{ request('search') }}',
+             loading: false,
+             
+             async searchEvents() {
+                 this.loading = true;
+                 try {
+                     const response = await fetch(`{{ route('events.index') }}?search=${this.search}`, {
+                         headers: {
+                             'X-Requested-With': 'XMLHttpRequest',
+                             'Accept': 'application/json'
+                         }
+                     });
+                     const html = await response.text();
+                     const parser = new DOMParser();
+                     const doc = parser.parseFromString(html, 'text/html');
+                     const tbody = doc.querySelector('tbody');
+                     document.querySelector('tbody').innerHTML = tbody.innerHTML;
+                 } catch (error) {
+                     console.error('Error:', error);
+                 } finally {
+                     this.loading = false;
+                 }
+             }
+         }"
+    >
 
+        <!-- Header Section -->
         <div class="flex items-center justify-between">
-            <h1 class="text-xl font-semibold text-gray-800">Manajemen Event</h1>
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                    Manajemen Event
+                </h1>
+                <p class="text-sm text-gray-500 mt-1">Kelola semua event organisasi Anda</p>
+            </div>
 
-            <div class="flex gap-2">
+            <div class="flex gap-3">
+                <a href="{{ route('events.export-pdf', ['search' => request('search')]) }}"
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Export PDF</span>
+                </a>
                 <a href="{{ route('events.create') }}"
-                    class="inline-flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-blue-500/30">
                     <i class="fas fa-calendar-plus"></i>
                     <span>Tambah Event</span>
                 </a>
             </div>
         </div>
 
-        <form method="GET" action="{{ route('events.index') }}" class="flex gap-2">
-            <input type="text" name="search" value="{{ request('search') }}"
-                placeholder="Cari judul atau penanggung jawab..." class="border rounded-lg px-3 py-2 text-sm w-64">
+        <!-- Search Bar with Live Search -->
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fas fa-search text-gray-400"></i>
+            </div>
+            <input 
+                type="text" 
+                x-model="search"
+                x-on:input.debounce.300ms="searchEvents()"
+                placeholder="Cari judul event, penanggung jawab, atau status..."
+                class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            >
+            <div x-show="loading" class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                <svg class="animate-spin h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </div>
+        </div>
 
-            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
-                Cari
-            </button>
-
-            @if(request('search'))
-                <a href="{{ route('events.index') }}"
-                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">
-                    Reset
-                </a>
-            @endif
-        </form>
-
-        <div class="overflow-x-auto">
-            <table class="w-full border-collapse text-sm">
-                <thead class="bg-gray-50 text-gray-600">
+        <!-- Table -->
+        <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <table class="w-full text-sm">
+                <thead class="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                     <tr>
-                        <th class="p-3 text-left">No</th>
-                        <th class="p-3 text-left">Judul</th>
-                        <th class="p-3 text-left">Status</th>
-                        <th class="p-3 text-left">Penanggung Jawab</th>
-                        <th class="p-3 text-left">Deskripsi</th>
-                        <th class="p-3 text-left">Aksi</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">No</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Judul Event</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Tanggal</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Penanggung Jawab</th>
+                        <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Aksi</th>
                     </tr>
                 </thead>
 
-                <tbody class="divide-y divide-gray-300/40">
+                <tbody class="divide-y divide-gray-100">
                     @forelse($events as $index => $event)
-                        <tr>
-                            <td class="p-3">
+                        <tr class="hover:bg-gray-50/50 transition-colors duration-150">
+                            <td class="px-6 py-4 text-gray-600">
                                 {{ $events->firstItem() + $index }}
                             </td>
 
-                            <td class="p-3 font-medium">
-                                {{ $event->title }}
+                            <td class="px-6 py-4">
+                                <div class="font-semibold text-gray-900">{{ $event->title }}</div>
+                                <div class="text-xs text-gray-500 mt-1">{{ Str::limit($event->description, 40) }}</div>
                             </td>
 
-                            <td class="p-3">
-                                <span class="px-2 py-1 rounded text-xs font-medium
-                                                        @if($event->status === 'aktif') bg-green-100 text-green-700
-                                                        @elseif($event->status === 'selesai') bg-blue-100 text-blue-700
-                                                        @elseif($event->status === 'mendatang') bg-yellow-100 text-yellow-700
-                                                        @else bg-gray-100 text-gray-700 @endif">
-                                    {{ ucfirst($event->status) }}
-                                </span>
+                            <td class="px-6 py-4 text-gray-600">
+                                <div class="text-xs">
+                                    <div>{{ \Carbon\Carbon::parse($event->start_date)->format('d M Y') }}</div>
+                                    <div class="text-gray-400">s/d {{ \Carbon\Carbon::parse($event->end_date)->format('d M Y') }}</div>
+                                </div>
                             </td>
 
-                            <td class="p-3">
+                            <td class="px-6 py-4">
+                                @if($event->status === 'aktif')
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">
+                                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                        Aktif
+                                    </span>
+                                @elseif($event->status === 'mendatang')
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                                        Mendatang
+                                    </span>
+                                @else
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-semibold">
+                                        <span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+                                        Selesai
+                                    </span>
+                                @endif
+                            </td>
+
+                            <td class="px-6 py-4 text-gray-600">
                                 {{ $event->penanggung_jawab }}
                             </td>
 
-                            <td class="p-3 text-gray-600">
-                                {{ Str::limit($event->description, 50) }}
-                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center justify-center gap-2">
+                                    <a href="{{ route('events.edit', $event->id) }}"
+                                       class="w-9 h-9 inline-flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-all duration-200 hover:scale-110">
+                                        <i class="fas fa-pen text-sm"></i>
+                                    </a>
+                                    <button 
+                                        @click="$dispatch('open-delete-modal-event-{{ $event->id }}')"
+                                        type="button"
+                                        class="w-9 h-9 inline-flex items-center justify-center bg-red-100 hover:bg-red-200 text-red-600 rounded-lg transition-all duration-200 hover:scale-110">
+                                        <i class="fas fa-trash text-sm"></i>
+                                    </button>
 
-                            <td class="p-3 flex gap-2">
-                                <button data-modal-target="edit-event-{{ $event->id }}"
-                                    data-modal-toggle="edit-event-{{ $event->id }}"
-                                    class="text-blue-600 hover:underline inline-flex items-center gap-1">
-                                    <i class="fas fa-pen-to-square text-lg"></i>
-                                </button>
-                                <div id="edit-event-{{ $event->id }}" tabindex="-1" aria-hidden="true"
-                                    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-
-                                    <div class="relative w-full max-w-xl p-4">
-                                        <div class="bg-white rounded-xl shadow-lg p-6">
-
-                                            <div class="flex justify-between items-center border-b border-gray-300/40 pb-3">
-                                                <h3 class="text-lg font-semibold text-gray-800">
-                                                    Ubah Data Event
-                                                </h3>
-                                                <button data-modal-hide="edit-event-{{ $event->id }}"
-                                                    class="text-gray-400 hover:text-gray-600">
-                                                    ✕
-                                                </button>
-                                            </div>
-
-                                            <form action="{{ route('events.update', $event->id) }}" method="POST"
-                                                enctype="multipart/form-data" class="space-y-4 pt-4">
-                                                @csrf
-                                                @method('PUT')
-
-                                                <div>
-                                                    <label class="text-sm font-medium">Judul Event</label>
-                                                    <input type="text" name="title" value="{{ $event->title }}"
-                                                        class="w-full rounded-lg border-gray-300 focus:outline-none"
-                                                        required>
-                                                </div>
-
-                                                <div class="grid grid-cols-2 gap-4">
-                                                    <div>
-                                                        <label class="text-sm font-medium">Tanggal Mulai</label>
-                                                        <input type="date" name="start_date"
-                                                            value="{{ $event->start_date }}"
-                                                            class="w-fit rounded-lg border-gray-300 focus:outline-none"
-                                                            required>
-                                                    </div>
-                                                    <div>
-                                                        <label class="text-sm font-medium">Tanggal Selesai</label>
-                                                        <input type="date" name="end_date" value="{{ $event->end_date }}"
-                                                            class="w-fit rounded-lg border-gray-300 focus:outline-none"
-                                                            required>
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <label class="text-sm font-medium">Status</label>
-                                                    <select name="status" class="w-fit rounded-lg border-gray-300"
-                                                        required>
-
-                                                        <option value="mendatang" {{ $event->status === 'mendatang' ? 'selected' : '' }}>
-                                                            Mendatang
-                                                        </option>
-
-                                                        <option value="aktif" {{ $event->status === 'aktif' ? 'selected' : '' }}>
-                                                            Aktif
-                                                        </option>
-
-                                                        <option value="selesai" {{ $event->status === 'selesai' ? 'selected' : '' }}>
-                                                            Selesai
-                                                        </option>
-
-                                                    </select>
-
-                                                </div>
-
-                                                <div>
-                                                    <label class="text-sm font-medium">Penanggung Jawab</label>
-                                                    <input type="text" name="penanggung_jawab"
-                                                        value="{{ $event->penanggung_jawab }}"
-                                                        class="w-full rounded-lg border-gray-300 focus:outline-none"
-                                                        required>
-                                                </div>
-
-                                                <div>
-                                                    <label class="text-sm font-medium">Deskripsi</label>
-                                                    <textarea name="description" rows="3"
-                                                        class="w-full rounded-lg border-gray-300 focus:outline-none">{{ $event->description }}</textarea>
-                                                </div>
-
-                                                <div>
-                                                    <label class="text-sm font-medium">Foto Event</label>
-                                                    @if($event->image)
-                                                        <img src="{{ asset('storage/' . $event->image) }}"
-                                                            class="w-24 mb-2 rounded-lg">
-                                                    @endif
-                                                    <input type="file" name="image"
-                                                        class="w-full text-sm focus:outline-none">
-                                                </div>
-
-                                                <div class="flex justify-end gap-3 pt-4 border-t border-gray-300/40">
-                                                    <button type="button" data-modal-hide="edit-event-{{ $event->id }}"
-                                                        class="px-4 py-2 bg-gray-100 rounded-lg">
-                                                        Batal
-                                                    </button>
-                                                    <button type="submit"
-                                                        class="px-5 py-2 bg-blue-500 text-white rounded-lg">
-                                                        Update
-                                                    </button>
-                                                </div>
-
-                                            </form>
-                                        </div>
+                                    <!-- Delete Form (Hidden) -->
+                                    <div x-data="{ deleteForm: null }"
+                                         @confirm-delete-event-{{ $event->id }}.window="deleteForm = $refs.deleteForm{{ $event->id }}; deleteForm.submit()">
+                                        <form ref="deleteForm{{ $event->id }}" method="POST" action="{{ route('events.destroy', $event->id) }}" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </div>
                                 </div>
-
-
-
-                                <form method="POST" action="{{ route('events.destroy', $event->id) }}"
-                                    onsubmit="return confirm('Yakin hapus event?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="inline-flex items-center gap-1 text-red-600 hover:underline">
-                                        <i class="fas fa-trash text-lg"></i>
-                                    </button>
-                                </form>
                             </td>
                         </tr>
+
+                        <!-- Delete Modal -->
+                        <x-dashboard.delete-modal
+                            id="event-{{ $event->id }}"
+                            title="Hapus Event?"
+                            message="Apakah Anda yakin ingin menghapus event '{{ $event->title }}'? Tindakan ini tidak dapat dibatalkan."
+                        />
                     @empty
                         <tr>
-                            <td colspan="6" class="p-6 text-center text-gray-500">
-                                Tidak ada data event
+                            <td colspan="6" class="px-6 py-12 text-center">
+                                <div class="flex flex-col items-center justify-center text-gray-400">
+                                    <i class="fas fa-calendar-xmark text-5xl mb-3"></i>
+                                    <p class="text-sm font-medium">Tidak ada data event</p>
+                                </div>
                             </td>
                         </tr>
                     @endforelse
@@ -206,7 +172,10 @@
             </table>
         </div>
 
-        {{ $events->links() }}
+        <!-- Pagination -->
+        <div class="border-t border-gray-200 pt-4">
+            {{ $events->links() }}
+        </div>
 
     </div>
 
