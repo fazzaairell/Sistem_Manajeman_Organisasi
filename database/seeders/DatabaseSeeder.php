@@ -46,6 +46,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EventSeeder::class,
             AnnouncementSeeder::class,
+            GallerySeeder::class,
+            EventRegistrationSeeder::class,
         ]);
     }
 }
