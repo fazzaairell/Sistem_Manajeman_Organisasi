@@ -8,6 +8,6 @@
 
     <x-homepage.announcements :announcements="$announcements" />
 
-    <x-homepage.gallery />
+    <x-homepage.gallery-section />
 
 </x-homepage.layout>

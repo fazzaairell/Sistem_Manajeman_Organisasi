@@ -180,7 +180,8 @@
 
                                         <!-- Delete Action -->
                                         <form method="POST" action="{{ route('announcements.destroy', $ann->id) }}" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengumuman ini?')">
-                                            @csrf @method('DELETE')
+                                            @csrf 
+                                            @method('DELETE')
                                             <button type="submit" class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="Hapus">
                                                 <i class="fas fa-trash text-xs"></i>
                                             </button>

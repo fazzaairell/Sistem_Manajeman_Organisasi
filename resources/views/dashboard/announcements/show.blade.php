@@ -134,7 +134,8 @@
                     </div>
 
                     <form method="POST" action="{{ route('announcements.destroy', $announcement->id) }}" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengumuman ini?')">
-                        @csrf @method('DELETE')
+                        @csrf 
+                        @method('DELETE')
                         <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-all shadow-lg shadow-red-200">
                             <i class="fas fa-trash"></i>
                             <span>Hapus</span>

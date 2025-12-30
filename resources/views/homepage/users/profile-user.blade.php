@@ -33,7 +33,6 @@
                         {{ auth()->user()->email }}
                     </p>
 
-                    <!-- GANTI PASSWORD -->
                     <button data-modal-target="change-password-modal" data-modal-toggle="change-password-modal"
                         class="mt-3 px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-700">
                         Ganti Password
@@ -47,7 +46,6 @@
                 </div>
             </div>
 
-            <!-- FORM EDIT PROFILE -->
             <div class="bg-white rounded-lg shadow p-6 md:col-span-2">
                 <form method="POST" action="{{ route('general.update') }}" enctype="multipart/form-data"
                     class="space-y-4">
