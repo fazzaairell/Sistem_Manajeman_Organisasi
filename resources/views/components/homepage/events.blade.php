@@ -11,17 +11,15 @@
 
         <div class="flex justify-center items-center mt-5 space-x-4">
             @foreach($events as $event)
-                <div class="max-w-sm bg-white rounded-lg shadow-md p-6 space-y-4 ">
-                    <div class="w-[250px] h-[150px] rounded-lg overflow-hidden">
+                <div class="max-w-sm w-[280px] h-[420px] bg-white rounded-lg shadow-md p-6 flex flex-col space-y-3">
+                    <div class="w-full h-[150px] rounded-lg overflow-hidden">
                         <img src="{{ $event->image ? asset('storage/' . $event->image) : '/storage/photos/page.png' }}"
-                            alt="Event Image" class="w-full h-full object-cover object-center" />
+                            class="w-full h-full object-cover" />
                     </div>
-
-
 
                     <p class="text-green-600 text-sm font-semibold">{{ $event->status }}</p>
 
-                    <h3 class="text-lg font-bold text-gray-900 hover:text-purple-600 cursor-pointer transition-colors">
+                    <h3 class="text-lg font-bold text-gray-900 line-clamp-2">
                         {{ $event->title }}
                     </h3>
 
@@ -31,16 +29,20 @@
                     </p>
 
                     <p class="flex items-center text-gray-600 text-sm space-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
-                        </svg>
                         <span>{{ $event->penanggung_jawab }}</span>
                     </p>
 
+<<<<<<< HEAD
                     <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                         <a href="{{ route('events.show', $event->id) }}">Lihat Event →</a>
                     </button>
+=======
+                    <div class="mt-auto">
+                        <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
+                            <a href="{{ route('events.show', $event->id) }}">Lihat Event →</a>
+                        </button>
+                    </div>
+>>>>>>> 3356c4dd09061fefa1c64e3b7a4e9a2c1862a1a2
                 </div>
             @endforeach
         </div>
