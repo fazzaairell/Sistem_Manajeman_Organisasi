@@ -21,7 +21,6 @@ Route::get('/', [HomepageController::class, 'index'])->name('home');
 // Event public (tanpa login)
 Route::get('/events', [EventHomeController::class, 'index'])->name('events.public');
 Route::get('/announcements', [AnnouncementHomeController::class, 'index'])->name('announcements.public');
-Route::get('/gallery', [GalleryHomeController::class, 'index'])->name('gallery.public');
 Route::post('/events/{event}/register', [EventHomeController::class, 'register'])
     ->middleware('auth') 
     ->name('events.register');
