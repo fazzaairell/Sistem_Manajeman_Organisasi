@@ -31,6 +31,15 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('event-registrations.index') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('event-registrations.*')
+    ? 'bg-purple-50 text-purple-600 font-semibold'
+    : 'text-gray-600 hover:bg-gray-50'
+                       }}">
+                    <i class="fas fa-clipboard-list w-5"></i>
+                    <span>Pendaftaran Event</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('users.index') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('users.*')
     ? 'bg-purple-50 text-purple-600 font-semibold'
     : 'text-gray-600 hover:bg-gray-50'
@@ -56,13 +65,17 @@
         <span>Gallery</span>
      </a>
     </li>
+        </ul>
+
+        <p class="text-xs text-gray-500 uppercase mt-6 mb-3 px-3">Akun</p>
+        <ul class="space-y-1">
             <li>
                 <a href="{{ route('general.profile') }}" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg transition {{ request()->routeIs('general.*')
     ? 'bg-purple-50 text-purple-600 font-semibold'
     : 'text-gray-600 hover:bg-gray-50'
                        }}">
-                    <i class="fas fa-cog w-5"></i>
-                    <span>Pengaturan</span>
+                    <i class="fas fa-user-circle w-5"></i>
+                    <span>Profil Saya</span>
                 </a>
             </li>
         </ul>

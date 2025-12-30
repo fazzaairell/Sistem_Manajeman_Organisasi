@@ -18,4 +18,28 @@ class Event extends Model
         'description', 
         'penanggung_jawab'
     ];
+
+    /**
+     * Relasi ke EventRegistration
+     */
+    public function registrations()
+    {
+        return $this->hasMany(EventRegistration::class);
+    }
+
+    /**
+     * Relasi ke EventRegistration dengan status pending
+     */
+    public function pendingRegistrations()
+    {
+        return $this->hasMany(EventRegistration::class)->where('status', 'pending');
+    }
+
+    /**
+     * Relasi ke EventRegistration dengan status approved
+     */
+    public function approvedRegistrations()
+    {
+        return $this->hasMany(EventRegistration::class)->where('status', 'approved');
+    }
 }

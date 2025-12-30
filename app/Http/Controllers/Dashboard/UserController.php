@@ -34,6 +34,28 @@ class UserController extends Controller
     }
 
     /**
+     * Export users to PDF
+     */
+    public function exportPdf(Request $request)
+    {
+        $search = $request->input('search');
+
+        $users = User::with('role')
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('username', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $pdf = Pdf::loadView('dashboard.users.pdf', compact('users'))
+            ->setPaper('a4', 'portrait');
+        
+        return $pdf->download('laporan-users-' . date('Y-m-d') . '.pdf');
+    }
+
+    /**
      * Menampilkan form create user
      */
     public function create()
@@ -173,26 +195,5 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index')->with('success', 'User berhasil dihapus!');
-    }
-
-    /**
-     * Export PDF semua user
-     */
-    public function exportPdf(Request $request)
-    {
-        $search = $request->input('search');
-
-        $users = User::with('role')
-            ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('username', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
-            })
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        $pdf = Pdf::loadView('dashboard.users.pdf', compact('users'));
-
-        return $pdf->download('laporan-user-' . date('Y-m-d') . '.pdf');
     }
 }

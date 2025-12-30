@@ -36,7 +36,7 @@
             <tr>
                 <td>
                     @if($event->image)
-                        <img src="{{ asset('storage/' . $event->image) }}" width="60">
+                        <img src="{{ filter_var($event->image, FILTER_VALIDATE_URL) ? $event->image : asset('storage/' . $event->image) }}" width="60">
                     @else
                         <small>No Image</small>
                     @endif
