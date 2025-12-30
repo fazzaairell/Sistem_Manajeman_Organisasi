@@ -15,7 +15,7 @@
         <div class="w-[50%] flex justify-center items-center">
             <div class="w-[85%] h-[70%] rounded-2xl overflow-hidden shadow-md">
                 <div
-                    class="w-full h-full bg-[url('/public/storage/photos/page.png')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                    class="w-full h-full bg-[url('/public/image/about.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
 
                 </div>
             </div>
