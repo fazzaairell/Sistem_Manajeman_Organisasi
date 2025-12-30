@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller {
     public function index() {
-        $galleries = Gallery::latest()->get();
+        $galleries = Gallery::latest()->paginate(12);
         return view('dashboard.gallery.index', compact('galleries'));
     }
 

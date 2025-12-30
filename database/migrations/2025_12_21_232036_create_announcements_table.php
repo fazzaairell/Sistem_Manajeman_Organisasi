@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('announcements', function (Blueprint $table) {
-        $table->id();
-        $table->string('image'); // Gambar pengumuman
-        $table->date('date'); // Tanggal pengumuman
-        $table->text('description')->nullable(); // Deskripsi singkat
-        $table->text('content'); // Isi pengumuman
-        $table->timestamps();
+            $table->id();
+            $table->string('title'); // Judul pengumuman
+            $table->string('category'); // Kategori: Akademik, Event, Umum, Prestasi, dll
+            $table->enum('priority', ['normal', 'penting', 'urgent'])->default('normal'); // Prioritas
+            $table->enum('status', ['draft', 'published'])->default('published'); // Status publikasi
+            $table->date('date'); // Tanggal pengumuman
+            $table->date('expires_at')->nullable(); // Tanggal kadaluarsa
+            $table->text('description'); // Ringkasan/deskripsi singkat
+            $table->text('content'); // Isi lengkap pengumuman
+            $table->string('author'); // Nama pembuat/penulis
+            $table->string('image')->nullable(); // Gambar pengumuman
+            $table->timestamps();
         });
     }
 
