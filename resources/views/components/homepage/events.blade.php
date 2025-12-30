@@ -31,18 +31,11 @@
                     <p class="flex items-center text-gray-600 text-sm space-x-1">
                         <span>{{ $event->penanggung_jawab }}</span>
                     </p>
-
-<<<<<<< HEAD
-                    <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
-                        <a href="{{ route('events.show', $event->id) }}">Lihat Event →</a>
-                    </button>
-=======
                     <div class="mt-auto">
                         <button class="w-full py-2 bg-purple-300 rounded-md font-semibold hover:bg-purple-400 transition">
                             <a href="{{ route('events.show', $event->id) }}">Lihat Event →</a>
                         </button>
                     </div>
->>>>>>> 3356c4dd09061fefa1c64e3b7a4e9a2c1862a1a2
                 </div>
             @endforeach
         </div>
