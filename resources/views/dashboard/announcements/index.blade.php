@@ -33,7 +33,7 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-br from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                     Manajemen Pengumuman
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Kelola semua pengumuman organisasi</p>
@@ -41,12 +41,12 @@
 
             <div class="flex gap-3">
                 <a href="{{ route('announcements.export-pdf', ['search' => request('search'), 'priority' => request('priority'), 'status' => request('status')]) }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
                     <i class="fas fa-file-pdf"></i>
                     <span>Export PDF</span>
                 </a>
                 <a href="{{ route('announcements.create') }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-emerald-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-br from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-emerald-500/30">
                     <i class="fas fa-bullhorn"></i>
                     <span>Tambah Pengumuman</span>
                 </a>

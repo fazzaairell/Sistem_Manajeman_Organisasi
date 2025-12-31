@@ -85,14 +85,14 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                     Manajemen Pendaftaran Event
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Kelola pendaftaran peserta event</p>
             </div>
 
             <a href="{{ route('event-registrations.export-pdf', ['status' => request('status'), 'event_id' => request('event_id')]) }}"
-               class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
+               class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
                 <i class="fas fa-file-pdf"></i>
                 <span>Export PDF</span>
             </a>
@@ -172,7 +172,7 @@
                                                 ? strtoupper(substr($nameParts[0], 0, 1) . substr($nameParts[1], 0, 1))
                                                 : strtoupper(substr($registration->user->name, 0, 2));
                                         @endphp
-                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-semibold text-sm">
+                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm">
                                             {{ $initials }}
                                         </div>
                                     @endif

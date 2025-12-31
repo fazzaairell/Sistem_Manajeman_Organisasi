@@ -5,7 +5,7 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between border-b border-gray-200 pb-4">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-br from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                     Tambah Pengumuman Baru
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Lengkapi formulir untuk menambahkan pengumuman baru</p>
@@ -25,7 +25,7 @@
                 <!-- Title (full width) -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-heading text-emerald-500 mr-1"></i>
+                        <i class="fas fa-heading text-purple-700 mr-1"></i>
                         Judul Pengumuman <span class="text-red-500">*</span>
                     </label>
                     <input type="text" 
@@ -45,7 +45,7 @@
                 <!-- Category -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-tag text-emerald-500 mr-1"></i>
+                        <i class="fas fa-tag text-purple-700 mr-1"></i>
                         Kategori <span class="text-red-500">*</span>
                     </label>
                     <select name="category" 
@@ -71,7 +71,7 @@
                 <!-- Priority -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-star text-emerald-500 mr-1"></i>
+                        <i class="fas fa-star text-purple-700 mr-1"></i>
                         Prioritas <span class="text-red-500">*</span>
                     </label>
                     <select name="priority" 
@@ -92,7 +92,7 @@
                 <!-- Status -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-circle-dot text-emerald-500 mr-1"></i>
+                        <i class="fas fa-circle-dot text-purple-700 mr-1"></i>
                         Status <span class="text-red-500">*</span>
                     </label>
                     <select name="status" 
@@ -112,7 +112,7 @@
                 <!-- Author -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-user-edit text-emerald-500 mr-1"></i>
+                        <i class="fas fa-user-edit text-purple-700 mr-1"></i>
                         Penulis <span class="text-red-500">*</span>
                     </label>
                     <input type="text" 
@@ -132,7 +132,7 @@
                 <!-- Date -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-calendar text-emerald-500 mr-1"></i>
+                        <i class="fas fa-calendar text-purple-700 mr-1"></i>
                         Tanggal Pengumuman <span class="text-red-500">*</span>
                     </label>
                     <input type="date" 
@@ -151,7 +151,7 @@
                 <!-- Expires At -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-clock text-emerald-500 mr-1"></i>
+                        <i class="fas fa-clock text-purple-700 mr-1"></i>
                         Tanggal Kedaluwarsa <span class="text-gray-400">(Opsional)</span>
                     </label>
                     <input type="date" 
@@ -173,7 +173,7 @@
                 <!-- Description -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-align-left text-emerald-500 mr-1"></i>
+                        <i class="fas fa-align-left text-purple-700 mr-1"></i>
                         Deskripsi Singkat <span class="text-red-500">*</span>
                     </label>
                     <textarea name="description" 
@@ -192,7 +192,7 @@
                 <!-- Content -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-file-alt text-emerald-500 mr-1"></i>
+                        <i class="fas fa-file-alt text-purple-700 mr-1"></i>
                         Konten Lengkap <span class="text-red-500">*</span>
                     </label>
                     <textarea name="content" 
@@ -211,7 +211,7 @@
                 <!-- Image -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-image text-emerald-500 mr-1"></i>
+                        <i class="fas fa-image text-purple-700 mr-1"></i>
                         Gambar <span class="text-gray-400">(Opsional)</span>
                     </label>
                     <div class="relative">
@@ -222,12 +222,12 @@
                                    file:mr-4 file:py-3 file:px-4
                                    file:rounded-xl file:border-0
                                    file:text-sm file:font-semibold
-                                   file:bg-gradient-to-r file:from-emerald-50 file:to-emerald-100
-                                   file:text-emerald-700
-                                   hover:file:from-emerald-100 hover:file:to-emerald-200
+                                   file:bg-gradient-to-r file:from-purple-50 file:to-purple-100
+                                   file:text-purple-700
+                                   hover:file:from-purple-100 hover:file:to-purple-200
                                    file:cursor-pointer file:transition-all
                                    border border-gray-200 rounded-xl
-                                   focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                   focus:outline-none focus:ring-2 focus:ring-purple-500"
                                onchange="previewImage(event)">
                     </div>
                     <p class="mt-2 text-xs text-gray-500 flex items-center gap-1">
@@ -254,7 +254,7 @@
                     <span>Batal</span>
                 </a>
                 <button type="submit" 
-                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-emerald-500/30">
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-emerald-500/30">
                     <i class="fas fa-save text-sm"></i>
                     <span>Simpan Pengumuman</span>
                 </button>

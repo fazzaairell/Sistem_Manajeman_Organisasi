@@ -1,20 +1,27 @@
 @props(['events'])
 
-<div id="event" class="relative flex justify-center items-center mt-[100px] mb-20">
+<div id="event" class="relative flex justify-center items-center mt-16 mb-20 px-4">
+    <div class="w-full max-w-7xl space-y-8">
 
-    <div class="w-[85%] max-w-7xl space-y-8">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-                <h1 class="text-4xl font-bold text-purple-950 mb-2">Event Kami</h1>
-                <p class="text-gray-600">Ikuti berbagai kegiatan menarik dari organisasi kami</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-950 mb-2">
+                    Event Kami
+                </h1>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Ikuti berbagai kegiatan menarik dari organisasi kami
+                </p>
             </div>
-            <a href="{{ route('events.public') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg">
-                <span class="font-semibold">Lihat semua</span>
+
+            <a href="{{ route('events.public') }}"
+               class="inline-flex items-center gap-2 px-5 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg w-fit">
+                <span class="font-semibold text-sm sm:text-base">Lihat semua</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
             </a>
         </div>
+
 
         @if($events->count() > 0)
             <!-- Swiper Slider -->
@@ -48,7 +55,7 @@
                                     </div>
 
                                     <!-- Content -->
-                                    <div class="p-6 flex flex-col h-[200px]">
+                                    <div class="p-5 sm:p-6 flex flex-col min-h-[220px]">
                                         <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors">
                                             {{ $event->title }}
                                         </h3>
@@ -84,8 +91,9 @@
                     </div>
                     
                     <!-- Navigation buttons -->
-                    <div class="swiper-button-next !w-12 !h-12 !bg-white !rounded-full !shadow-lg after:!text-purple-600 after:!text-xl !right-0"></div>
-                    <div class="swiper-button-prev !w-12 !h-12 !bg-white !rounded-full !shadow-lg after:!text-purple-600 after:!text-xl !left-0"></div>
+\                    <div class="swiper-button-next hidden md:flex !w-12 !h-12 !bg-white !rounded-full !shadow-lg after:!text-purple-600 after:!text-xl !right-0"></div>
+                    <div class="swiper-button-prev hidden md:flex !w-12 !h-12 !bg-white !rounded-full !shadow-lg after:!text-purple-600 after:!text-xl !left-0"></div>
+
                     
                     <!-- Pagination -->
                     <div class="swiper-pagination !bottom-0"></div>

@@ -5,7 +5,7 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between border-b border-gray-200 pb-4">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                     Tambah Event Baru
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Lengkapi formulir untuk menambahkan event baru</p>
@@ -25,7 +25,7 @@
                 <!-- Judul Event (full width) -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-calendar-alt text-blue-500 mr-1"></i>
+                        <i class="fas fa-calendar-alt text-purple-700 mr-1"></i>
                         Judul Event <span class="text-red-500">*</span>
                     </label>
                     <input type="text"
@@ -45,7 +45,7 @@
                 <!-- Status -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-toggle-on text-blue-500 mr-1"></i>
+                        <i class="fas fa-toggle-on text-purple-700 mr-1"></i>
                         Status <span class="text-red-500">*</span>
                     </label>
                     <select name="status"
@@ -67,7 +67,7 @@
                 <!-- Penanggung Jawab -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-user-tie text-blue-500 mr-1"></i>
+                        <i class="fas fa-user-tie text-purple-700 mr-1"></i>
                         Penanggung Jawab <span class="text-red-500">*</span>
                     </label>
                     <input type="text"
@@ -87,7 +87,7 @@
                 <!-- Tanggal Mulai -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-calendar-check text-blue-500 mr-1"></i>
+                        <i class="fas fa-calendar-check text-purple-700 mr-1"></i>
                         Tanggal Mulai <span class="text-red-500">*</span>
                     </label>
                     <input type="date"
@@ -106,7 +106,7 @@
                 <!-- Tanggal Selesai -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-calendar-times text-blue-500 mr-1"></i>
+                        <i class="fas fa-calendar-times text-purple-700 mr-1"></i>
                         Tanggal Selesai <span class="text-red-500">*</span>
                     </label>
                     <input type="date"
@@ -125,7 +125,7 @@
                 <!-- Deskripsi Event (full width) -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-align-left text-blue-500 mr-1"></i>
+                        <i class="fas fa-align-left text-purple-700 mr-1"></i>
                         Deskripsi Event <span class="text-red-500">*</span>
                     </label>
                     <textarea name="description"
@@ -144,7 +144,7 @@
                 <!-- Gambar Event (full width) -->
                 <div class="md:col-span-2">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        <i class="fas fa-image text-blue-500 mr-1"></i>
+                        <i class="fas fa-image text-purple-700 mr-1"></i>
                         Gambar Event <span class="text-gray-400">(Opsional)</span>
                     </label>
                     <div class="relative">
@@ -155,9 +155,9 @@
                                    file:mr-4 file:py-3 file:px-4
                                    file:rounded-xl file:border-0
                                    file:text-sm file:font-semibold
-                                   file:bg-gradient-to-r file:from-blue-50 file:to-blue-100
-                                   file:text-blue-700
-                                   hover:file:from-blue-100 hover:file:to-blue-200
+                                   file:bg-gradient-to-r file:from-purple-50 file:to-purple-100
+                                   file:text-purple-700
+                                   hover:file:from-purple-100 hover:file:to-purple-200
                                    file:cursor-pointer file:transition-all
                                    border border-gray-200 rounded-xl
                                    focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -183,7 +183,7 @@
                     <span>Batal</span>
                 </a>
                 <button type="submit"
-                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-blue-500/30">
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-blue-500/30">
                     <i class="fas fa-save text-sm"></i>
                     <span>Simpan Event</span>
                 </button>
