@@ -7,7 +7,6 @@
             <!-- Brand Section -->
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex flex-col sm:flex-row items-center md:items-start gap-3 mb-3">
-                    <img src="/images/koni-logo.png" alt="Logo" class="h-12">
                     <h2 class="text-base font-bold text-gray-800 leading-tight">
                         Sistem Manajemen<br>Organisasi
                     </h2>
