@@ -14,7 +14,7 @@
             </div>
 
             <a href="{{ route('events.public') }}"
-               class="inline-flex items-center gap-2 px-5 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg w-fit">
+               class="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg w-fit">
                 <span class="font-semibold text-sm sm:text-base">Lihat semua</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -32,7 +32,7 @@
                             <div class="swiper-slide">
                                 <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-2 h-full">
                                     <!-- Image with Overlay -->
-                                    <div class="relative w-full h-52 overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
+                                    <div class="relative w-full h-52 overflow-hidden bg-gradient-to-r from-purple-100 to-blue-100">
                                         @if($event->image)
                                             <img src="{{ filter_var($event->image, FILTER_VALIDATE_URL) ? $event->image : asset('storage/' . $event->image) }}"
                                                 alt="{{ $event->title }}"
@@ -78,7 +78,7 @@
 
                                         <!-- Button -->
                                         <a href="{{ route('events.show', $event->id) }}" 
-                                           class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all shadow-md hover:shadow-lg">
+                                           class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all shadow-md hover:shadow-lg">
                                             <span>Lihat Detail</span>
                                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>

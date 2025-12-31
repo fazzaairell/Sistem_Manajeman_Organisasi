@@ -10,7 +10,7 @@
                 <p class="text-gray-600">Informasi dan pengumuman penting untuk Anda</p>
             </div>
             <a href="{{ route('announcements.public') }}"
-                class="w-fit inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg">
+                class="w-fit inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg">
                 <span class="font-semibold">Lihat semua</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
