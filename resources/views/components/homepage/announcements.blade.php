@@ -4,13 +4,13 @@
 
     <div class="w-[85%] max-w-7xl space-y-8">
         <!-- Single Header -->
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
                 <h1 class="text-4xl font-bold text-purple-950 mb-2">Pengumuman Terkini</h1>
                 <p class="text-gray-600">Informasi dan pengumuman penting untuk Anda</p>
             </div>
             <a href="{{ route('announcements.public') }}"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg">
+                class="w-fit inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all hover:shadow-lg">
                 <span class="font-semibold">Lihat semua</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
