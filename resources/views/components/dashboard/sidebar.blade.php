@@ -2,7 +2,7 @@
 
     <div class="p-6 border-b border-gray-300/40">
         <div class="flex items-center space-x-3 ">
-            <a href="{{ route('home') }}" class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+            <a href="{{ route('home') }}" class="w-10 h-10 bg-purple-700 rounded-lg flex items-center justify-center">
                 <i class="fas fa-building text-white text-xl"></i>
             </a>
             <h1 class="text-xl font-bold">InTech</h1>
