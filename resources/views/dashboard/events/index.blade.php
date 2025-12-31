@@ -31,7 +31,7 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-br from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                     Manajemen Event
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Kelola semua event organisasi Anda</p>
@@ -39,12 +39,12 @@
 
             <div class="flex gap-3">
                 <a href="{{ route('events.export-pdf', ['search' => request('search')]) }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
                     <i class="fas fa-file-pdf"></i>
                     <span>Export PDF</span>
                 </a>
                 <a href="{{ route('events.create') }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-blue-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-br from-purple-500 to-indigo-600 hover:from-purpler-500 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-blue-500/30">
                     <i class="fas fa-calendar-plus"></i>
                     <span>Tambah Event</span>
                 </a>

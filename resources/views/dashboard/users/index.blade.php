@@ -31,7 +31,7 @@
         <!-- Header Section -->
         <div class="flex items-center justify-between">
             <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-indigo-700 bg-clip-text text-transparent">
                     Manajemen User
                 </h1>
                 <p class="text-sm text-gray-500 mt-1">Kelola semua pengguna sistem</p>
@@ -39,12 +39,12 @@
 
             <div class="flex gap-3">
                 <a href="{{ route('users.export-pdf', ['search' => request('search')]) }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-green-500/30">
                     <i class="fas fa-file-pdf"></i>
                     <span>Export PDF</span>
                 </a>
                 <a href="{{ route('users.create') }}"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-purple-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-purple-500/30">
                     <i class="fas fa-user-plus"></i>
                     <span>Tambah User</span>
                 </a>
@@ -107,7 +107,7 @@
                                                 $initials = strtoupper(substr($user->name, 0, 2));
                                             }
                                         @endphp
-                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-semibold text-sm">
+                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm">
                                             {{ $initials }}
                                         </div>
                                     @endif

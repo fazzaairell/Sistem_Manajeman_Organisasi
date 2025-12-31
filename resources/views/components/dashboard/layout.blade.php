@@ -41,18 +41,18 @@
                         <div class="flex items-center gap-4">
                             @php
                                 $nameParts = explode(' ', auth()->user()->name);
-                                $initials = count($nameParts) >= 2 
+                                $initials = count($nameParts) >= 2
                                     ? strtoupper(substr($nameParts[0], 0, 1) . substr($nameParts[1], 0, 1))
                                     : strtoupper(substr(auth()->user()->name, 0, 2));
                             @endphp
-                            
+
                             <div class="flex items-center gap-3">
                                 @if(auth()->user()->photo)
-                                    <img class="w-10 h-10 rounded-full object-cover border-2 border-purple-200" 
-                                         src="{{ asset('storage/' . auth()->user()->photo) }}" 
-                                         alt="{{ auth()->user()->name }}">
+                                    <img class="w-10 h-10 rounded-full object-cover border-2 border-purple-200"
+                                        src="{{ asset('storage/' . auth()->user()->photo) }}" alt="{{ auth()->user()->name }}">
                                 @else
-                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
                                         {{ $initials }}
                                     </div>
                                 @endif
@@ -61,10 +61,11 @@
                                     <div class="text-xs text-gray-500">{{ auth()->user()->email }}</div>
                                 </div>
                             </div>
-                            
+
                             <form method="POST" action="{{ route('logout') }}" class="inline">
                                 @csrf
-                                <button type="submit" class="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg font-medium transition">
+                                <button type="submit"
+                                    class="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg font-medium transition">
                                     <i class="fas fa-sign-out-alt mr-1"></i> Keluar
                                 </button>
                             </form>
