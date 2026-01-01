@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Homepage;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventHomeController extends Controller
 {
@@ -21,17 +22,29 @@ class EventHomeController extends Controller
 
     public function register(Request $request, Event $event)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-        ]);
+        // pastikan user login
+        if (!Auth::check()) {
+            return redirect()->route('login')
+                ->with('error', 'Silakan login terlebih dahulu untuk mendaftar event.');
+        }
 
+        // cegah daftar dua kali
+        $alreadyRegistered = $event->registrations()
+            ->where('user_id', Auth::id())
+            ->exists();
+
+        if ($alreadyRegistered) {
+            return redirect()->back()
+                ->with('error', 'Anda sudah terdaftar pada event ini.');
+        }
+
+        // simpan pendaftaran
         $event->registrations()->create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'user_id'       => Auth::id(),
+            'status'        => 'pending',
+            'registered_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran berhasil!');
+        return redirect()->back()->with('success', 'Pendaftaran event berhasil!');
     }
-
 }
